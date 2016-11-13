@@ -1,29 +1,59 @@
 package ru.sbulygin;
 
 /**
-* Класс калькулятор.
+* Класс Calculator.
 * @author sbulygin.
 * @since 13.11.2016.
 * @version 1.0.
-*/ 
+*/
+public class Calculator {
 
-pablic class Calculator {
+    /**
+    * Добавляем поле result.
+    */
+    private double result;
 
-    private Double result;
-
-    pablic void add(double first, double second) {
+    /**
+    * Метод add.
+    * @param first первое слогаемое.
+    * @param second второе слогаемое.
+    */
+    public void add(double first, double second) {
         this.result = first + second;
     }
 
-    pablic void subtract(double first, double second) {
+    /**
+    * Метод subtract.
+    * @param first уменьшаемое.
+    * @param second вычитаемое.
+    */
+    public void subtract(double first, double second) {
         this.result = first - second;
     }
 
-    pablic void multiply(double first, double second) {
+    /**
+    * Метод multiply.
+    * @param first множимое.
+    * @param second множитель.
+    */
+    public void multiply(double first, double second) {
          this.result = first * second;
     }
 
-    pablic void div(double first, double second) {
+    /**
+    * Метод div.
+    * @param first делимое.
+    * @param second делитель.
+    */
+    public void div(double first, double second) {
          this.result = first / second;
-    }
+  }
+
+    /**
+    * Метод getResult.
+    * @return полученое значение result
+    */
+    public double getResult() {
+        return this.result;
+  }
  }
