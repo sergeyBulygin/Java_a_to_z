@@ -19,6 +19,7 @@
   Finally, it is worth reading the documentation.
 -->
 
+
 <module name="Checker">
 
     <!--Расширение файла должно быть java, properties, xml-->
@@ -43,6 +44,11 @@
        <property name="maximum" value="0"/>
        <property name="message" value="Line has trailing spaces."/>
     </module>
+	
+	
+	
+	
+	
 
     <!-- Checks for Headers                                -->
     <!-- See http://checkstyle.sf.net/config_header.html   -->
@@ -116,7 +122,6 @@
         <module name="AvoidInlineConditionals"/>
         <module name="EmptyStatement"/>
         <module name="EqualsHashCode"/>
-        <module name="HiddenField"/>
         <module name="IllegalInstantiation"/>
         <module name="InnerAssignment"/>
         <module name="MagicNumber"/>
@@ -138,7 +143,7 @@
         <!--<module name="FinalParameters"/>-->
         <module name="TodoComment"/>
         <module name="UpperEll"/>
-
     </module>
+        
 
 </module>
