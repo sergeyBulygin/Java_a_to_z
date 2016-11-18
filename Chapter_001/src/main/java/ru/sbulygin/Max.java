@@ -89,7 +89,7 @@ public class Max {
     * @return максимальное значение
     */
     public int maxThree(int first, int second, int third) {
-        if (first == second || second == third) {
+        if (first == second || second == third || first == first) {
             return 0;
         } else {
             return Math.max(first, Math.max(second, third));
