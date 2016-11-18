@@ -13,13 +13,31 @@ package ru.sbulygin;
 public class Max {
 
     /**
-    * Добавляем поле first.
+    * Добавляем поле int first.
     */
     private int first;
     /**
     * Добавляем поле int second.
     */
     private int second;
+
+    /**
+    * Добавляем поле int third.
+    */
+    private int third;
+
+    /**
+    * Добавляем поле int value.
+    */
+    private int value;
+
+    /**
+    * Метод getValue.
+    * @return полученое значение value.
+    */
+    public int getValue() {
+        return this.value;
+    }
 
     /**
     * Метод getFirst.
@@ -38,6 +56,14 @@ public class Max {
     }
 
     /**
+    * Метод getThird.
+    * @return полученое значение third.
+    */
+    public int getThird() {
+        return this.third;
+    }
+
+    /**
     * Метод max.
     * Сравнивает 2 числа.
     * @param first первое число.
@@ -51,6 +77,22 @@ public class Max {
             return first;
         } else {
             return second;
+        }
+    }
+
+    /**
+    * Метод maxThree.
+    * Сравнивает 3 числа.
+    * @param first первое число.
+    * @param second второе число.
+    * @param third третье число.
+    * @return максимальное значение
+    */
+    public int maxThree(int first, int second, int third) {
+        if (first == second || second == third) {
+            return 0;
+        } else {
+            return Math.max(first, Math.max(second, third));
         }
     }
  }
