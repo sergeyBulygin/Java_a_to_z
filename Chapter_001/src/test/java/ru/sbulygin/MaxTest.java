@@ -41,7 +41,7 @@ public class MaxTest {
     /**
     * Тест для класса Max.
     *
-    * Тест метода max .
+    * Тест метода maxThree .
     */
     @Test
     public void whenFirstComparSecondComparThirdThenTen() {
@@ -54,7 +54,7 @@ public class MaxTest {
     /**
     * Тест для класса Max.
     *
-    * Тест метода max .
+    * Тест метода maxThree при равных значениях .
     */
     @Test
     public void whenFirstEqualSecondEqualThirdThenNull() {
