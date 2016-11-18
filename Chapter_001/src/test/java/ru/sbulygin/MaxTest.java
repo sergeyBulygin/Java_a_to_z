@@ -37,4 +37,30 @@ public class MaxTest {
         final int expectResult = 10;
         assertThat(result, is(expectResult));
     }
+
+    /**
+    * Тест для класса Max.
+    *
+    * Тест метода max .
+    */
+    @Test
+    public void whenFirstComparSecondComparThirdThenTen() {
+        final Max value = new Max();
+        final int result = value.maxThree(10, 5, 8);
+        final int expectResult = 10;
+        assertThat(result, is(expectResult));
+    }
+
+    /**
+    * Тест для класса Max.
+    *
+    * Тест метода max .
+    */
+    @Test
+    public void whenFirstEqualSecondEqualThirdThenNull() {
+        final Max value = new Max();
+        final int result = value.maxThree(10, 10, 10);
+        final int expectResult = 0;
+        assertThat(result, is(expectResult));
+    }
  }
