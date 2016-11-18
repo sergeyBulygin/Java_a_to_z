@@ -5,7 +5,7 @@ package ru.sbulygin;
 /**
 * Класс Triangle.
 * @author sbulygin.
-* @since 17.11.2016.
+* @since 18.11.2016.
 * @version 1.0.
 */
 public class Triangle {
