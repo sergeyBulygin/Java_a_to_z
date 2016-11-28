@@ -16,7 +16,7 @@ public class FactorialTest {
     /**
     * Тест для класса Factorial.
     *
-    * Тест метода fact .
+    * Тест метода fact, a > 0 .
     */
     @Test
     public void whenAddCorrectValueThenReturnFactorial() {
@@ -27,9 +27,9 @@ public class FactorialTest {
     }
 
     /**
-    * Тест для класса Max.
+    * Тест для класса Factorial.
     *
-    * Тест метода max.
+    * Тест метода fact, a = 0 .
     */
     @Test
     public void whenAddNullThenReturnOne() {
