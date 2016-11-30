@@ -73,7 +73,7 @@ public class Triangle {
         double lineAB = this.getA().distanceTo(this.getB());
         double lineBC = this.getB().distanceTo(this.getC());
         double lineAC = this.getA().distanceTo(this.getC());
-        double semiPerimetr = ((lineAB + lineBC + lineAC) / 2);
+        double semiPerimetr = (lineAB + lineBC + lineAC) / 2;
         if (lineAB > 0 && lineBC > 0 && lineAC > 0) {
             return Math.sqrt(semiPerimetr * (semiPerimetr - lineAB) * (semiPerimetr - lineBC) * (semiPerimetr - lineAC));
         } else {
