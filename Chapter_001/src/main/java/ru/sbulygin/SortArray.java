@@ -15,7 +15,7 @@ public class SortArray {
     * @param values array of integer values.
     * @return sorting array.
     */
-    public static int[] bubbleSort(int[] values) {
+    public int[] bubbleSort(int[] values) {
         if (values == null || values.length <= 1) {
             throw new IllegalArgumentException("Array cannot have lenght <= 1 or equal to 0.");
         }

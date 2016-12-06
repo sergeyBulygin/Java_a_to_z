@@ -15,7 +15,7 @@ public class Turn {
     * @param arr array of integer values.
     * @return inverted array.
     */
-    public static int[] back(int[] arr) {
+    public int[] back(int[] arr) {
         if (arr == null || arr.length <= 1) {
             throw new IllegalArgumentException("Array cannot have lenght <= 1 or equal to 0.");
         }
