@@ -12,6 +12,7 @@ public class Calculate {
      * @param args do not use.
      */
      public static void main(String[] args) {
-         System.out.print("Hello World");
+         String sep = System.getProperty("line.separator");
+        System.out.printf("Hello World!%s", sep);
   }
  }
