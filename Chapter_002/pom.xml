@@ -3,7 +3,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-	<groupId>Chapter_002</groupId>
+	<groupId>ru.sbulygin</groupId>
 	<artifactId>Chapter_002</artifactId>
 	<packaging>jar</packaging>
 	<version>1.0</version>
@@ -11,7 +11,7 @@
 	<url>http://job4j.ru</url>
 	
 	<parent>
-        <groupId>Java_a_to_z</groupId>
+        <groupId>ru.sbulygin</groupId>
         <artifactId>Java_a_to_z</artifactId>
         <version>1.0</version>
     </parent>
