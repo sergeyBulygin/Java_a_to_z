@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 	<groupId>ru.sbulygin</groupId>
 	<artifactId>Chapter_002</artifactId>
-	<packaging>jar</packaging>
+	<packaging>pom</packaging>
 	<version>1.0</version>
 	<name>Chapter_002</name>
 	<url>http://job4j.ru</url>
