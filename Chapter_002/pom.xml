@@ -12,6 +12,7 @@
 	
 	<modules>
 	   <module>Lesson_1</module>
+	   <module>Lesson_2</module>
 	</modules>
 	
 	<parent>

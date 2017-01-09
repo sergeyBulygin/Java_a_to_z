@@ -13,7 +13,7 @@
 	
 	<parent>
         <groupId>ru.sbulygin</groupId>
-        <artifactId>Java_a_to_z</artifactId>
+        <artifactId>Lesson_1</artifactId>
         <version>1.0</version>
     </parent>
 	

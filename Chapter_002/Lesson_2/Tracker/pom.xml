@@ -4,19 +4,15 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 	<groupId>ru.sbulygin</groupId>
-	<artifactId>Lesson_1</artifactId>
-	<packaging>pom</packaging>
+	<artifactId>Tracker</artifactId>
+	<packaging>jar</packaging>
 	<version>1.0</version>
-	<name>Lesson_1</name>
+	<name>Tracker</name>
 	<url>http://job4j.ru</url>
-	
-	<modules>
-	   <module>UML</module>
-	</modules>
 	
 	<parent>
         <groupId>ru.sbulygin</groupId>
-        <artifactId>Chapter_002</artifactId>
+        <artifactId>Lesson_2</artifactId>
         <version>1.0</version>
     </parent>
 	
