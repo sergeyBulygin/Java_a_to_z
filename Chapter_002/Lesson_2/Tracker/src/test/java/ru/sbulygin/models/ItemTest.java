@@ -2,10 +2,8 @@ package ru.sbulygin.models;
 
 import org.junit.Before;
 import org.junit.Test;
-//import ru.sbulygin.models.Item;
-//import ru.sbulygin.models.Task;
-import ru.sbulygin.start.Tracker;
 
+import ru.sbulygin.start.Tracker;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
