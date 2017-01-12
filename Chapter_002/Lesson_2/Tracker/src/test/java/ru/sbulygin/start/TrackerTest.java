@@ -4,11 +4,8 @@ import org.junit.Before;
 import org.junit.Test;
 import ru.sbulygin.models.Item;
 import ru.sbulygin.models.Task;
-//import ru.sbulygin.start.Tracker;
 
 import static org.hamcrest.core.Is.is;
-//import static org.junit.Assert.assertArrayEquals;
-//import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertThat;
 
 /**
@@ -41,6 +38,7 @@ public class TrackerTest {
      * First index array field.
      */
     private int firstIndex = 0;
+
 
     /**
      * Information method to test.
@@ -117,4 +115,5 @@ public class TrackerTest {
         Item[] checked = {testItemOne, testItemTwo};
         assertThat(trackerTest.getAll(), is(checked));
     }
+
 }
