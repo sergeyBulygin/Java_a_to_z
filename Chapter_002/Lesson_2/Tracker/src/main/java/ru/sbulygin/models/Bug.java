@@ -15,7 +15,7 @@ public class Bug extends Item {
      * @param description description of task.
      * @param dateCreation create time of task.
      */
-    public Bug (String name, String description, long dateCreation) {
-        super (name, description, dateCreation);
+    public Bug(String name, String description, long dateCreation) {
+        super(name, description, dateCreation);
     }
 }

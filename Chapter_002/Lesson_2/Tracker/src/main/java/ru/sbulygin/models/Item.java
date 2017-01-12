@@ -11,7 +11,7 @@ package ru.sbulygin.models;
 public class Item {
 
     /**
-     * The id field
+     * The id field.
      */
     private String id;
     /**
@@ -29,7 +29,7 @@ public class Item {
     /**
      * The comment field of the array.
      */
-    private Comment[]comments = new Comment[10];
+    private Comment[]comments = new Comment[3];
     /**
      * The field position in the array.
      */
@@ -41,7 +41,7 @@ public class Item {
      * @param description description of item.
      * @param dateCreation create time of item.
      */
-    public Item (String name, String description, long dateCreation) {
+    public Item(String name, String description, long dateCreation) {
         this.name = name;
         this.description = description;
         this.dateCreation = dateCreation;

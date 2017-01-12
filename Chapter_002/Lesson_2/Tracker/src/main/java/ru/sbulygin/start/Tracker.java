@@ -1,8 +1,8 @@
 package ru.sbulygin.start;
 
-import ru.sbulygin.models.*;
+import ru.sbulygin.models.Item;
 
-import java.util.*;
+import java.util.Random;
 
 /**
  * @author ru.sbulygin.start.
@@ -13,7 +13,7 @@ public class Tracker {
     /**
      * The item field of the array.
      */
-    private Item[] items = new Item[10];
+    private Item[] items = new Item[3];
 
     /**
      * The field position in the array.
@@ -47,7 +47,7 @@ public class Tracker {
      * @param item item.
      */
     public void updateItem(Item item) {
-        for (int index = 0; index < this.items.length; index++) {
+        for (int index = 0; index != this.positionItem; index++) {
             if ((this.items[index] != null) && (this.items[index].getId().equals(item.getId()))) {
                 this.items[index] = item;
                 break;
@@ -60,7 +60,7 @@ public class Tracker {
      * @param id id item.
      */
     public void deleteItem(String id) {
-        for (int index = 0; index < this.items.length; index++) {
+        for (int index = 0; index != this.positionItem; index++) {
             if ((this.items[index] != null) && (this.items[index].getId().equals(id))) {
                 this.items[index] = null;
                 this.positionItem--;
