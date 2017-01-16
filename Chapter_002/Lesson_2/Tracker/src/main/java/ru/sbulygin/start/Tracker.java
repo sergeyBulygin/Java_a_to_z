@@ -2,6 +2,7 @@ package ru.sbulygin.start;
 
 import ru.sbulygin.models.Item;
 
+import java.util.Arrays;
 import java.util.Random;
 
 /**
@@ -60,10 +61,10 @@ public class Tracker {
      * @param id id item.
      */
     public void deleteItem(String id) {
-        for (int index = 0; index != this.positionItem; index++) {
+        for (int index = 0; index < this.positionItem; index++) {
             if ((this.items[index] != null) && (this.items[index].getId().equals(id))) {
-                this.items[index] = null;
-                this.positionItem--;
+                System.arraycopy(items, index + 1, items, index, this.positionItem - index - 1);
+                this.items[positionItem--] = null;
                 break;
             }
         }
@@ -106,13 +107,7 @@ public class Tracker {
      * @return all items.
      */
     public Item[] getAll() {
-        Item[] result = new Item[this.positionItem];
-        for (int index = 0; index != this.positionItem; index++) {
-            if (this.items[index] != null) {
-                result[index] = items[index];
-            }
-        }
-        return result;
+        return this.positionItem == 0 ? null : Arrays.copyOf(this.items, this.positionItem);
     }
 
 

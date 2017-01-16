@@ -2,6 +2,7 @@ package ru.sbulygin.start;
 
 import org.junit.Before;
 import org.junit.Test;
+import ru.sbulygin.models.Bug;
 import ru.sbulygin.models.Item;
 import ru.sbulygin.models.Task;
 
@@ -49,6 +50,7 @@ public class TrackerTest {
          testItemEdit = new Task("requestTwo", "descriptionTwo", 120L);
          testItemTwo = new Task("requestThree", "descriptionThree", 130L);
          trackerTest = new Tracker();
+         testItemOne = new Bug("descriptionFour", "requestFour", 140L);
     }
 
     /**
@@ -79,8 +81,8 @@ public class TrackerTest {
     public void whenAddTwoTasksAndDeleteTwoThenArrayWithSecondTask() {
         trackerTest.addItem(testItemOne);
         trackerTest.addItem(testItemTwo);
-        Item[] checked = {testItemOne};
-        trackerTest.deleteItem(testItemTwo.getId());
+        Item[] checked = {testItemTwo};
+        trackerTest.deleteItem(testItemOne.getId());
         assertThat(trackerTest.getAll(), is(checked));
 
     }
