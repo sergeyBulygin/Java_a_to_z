@@ -11,8 +11,8 @@
 	<url>http://job4j.ru</url>
 	
 	<modules>
-	   <module>Lesson_1</module>
-	   <module>Lesson_2</module>
+	   <module>Lesson_3</module>
+	   <module>Lesson_4</module>
 	</modules>
 	
 	<parent>
