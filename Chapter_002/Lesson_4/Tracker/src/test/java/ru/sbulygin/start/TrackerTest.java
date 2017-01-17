@@ -59,7 +59,7 @@ public class TrackerTest {
     }
 
     /**
-     * Test method addItem class Tracker.
+     * Test method addItem  class Tracker.
      */
     @Test
     public void whenAddNewItemThenInTrackerIsSameItem() {
