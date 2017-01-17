@@ -35,7 +35,7 @@ public class Item {
     /**
      * The comment field of the array.
      */
-    private Comment[] comments = new Comment[10];
+    private Comment[] comments;
 
     /**
      * Constructor of Item class.
