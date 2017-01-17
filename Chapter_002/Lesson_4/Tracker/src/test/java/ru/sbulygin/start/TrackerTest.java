@@ -55,7 +55,7 @@ public class TrackerTest {
          testItemEdit = new Task("requestTwo", "descriptionTwo", 120L);
          testItemTwo = new Task("requestThree", "descriptionThree", 130L);
          trackerTest = new Tracker();
-         comment = new Comment("Test comment");
+         comment = new Comment();
     }
 
     /**
