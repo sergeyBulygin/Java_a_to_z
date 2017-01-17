@@ -26,14 +26,16 @@ public class Item {
      * Creation date field.
      */
     private long dateCreation;
-    /**
-     * The comment field of the array.
-     */
-    private Comment[]comments = new Comment[3];
+
     /**
      * The field position in the array.
      */
     private int position = 0;
+
+    /**
+     * The comment field of the array.
+     */
+    private Comment[] comments = new Comment[10];
 
     /**
      * Constructor of Item class.
@@ -80,15 +82,19 @@ public class Item {
     }
 
     /**
-     * Getter method for comments.
-     * @return comment.
+     * Getter method for comment array field.
+     * @return comments.
      */
-    public Comment[] getComments() {
-        Comment[] result = new Comment[this.position];
-        for (int index = 0; index != this.position; index++) {
-            result[index] = comments[index];
-        }
-        return result;
+    public Comment[] getComment() {
+        return this.comments;
+    }
+
+    /**
+     * Setter method for comment array field.
+     * @param comments comments.
+     */
+    public void setComment(Comment[] comments) {
+        this.comments = comments;
     }
 
     /**
@@ -130,6 +136,5 @@ public class Item {
     public void addComment(Comment comment) {
         this.comments[position++] = comment;
     }
-
 
 }

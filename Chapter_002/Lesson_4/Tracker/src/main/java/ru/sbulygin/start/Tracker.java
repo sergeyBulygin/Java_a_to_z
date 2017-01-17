@@ -1,5 +1,6 @@
 package ru.sbulygin.start;
 
+import ru.sbulygin.models.Comment;
 import ru.sbulygin.models.Item;
 
 import java.util.Arrays;
@@ -14,7 +15,7 @@ public class Tracker {
     /**
      * The item field of the array.
      */
-    private Item[] items = new Item[3];
+    private Item[] items = new Item[10];
 
     /**
      * The field position in the array.
@@ -108,6 +109,20 @@ public class Tracker {
      */
     public Item[] getAll() {
         return this.positionItem == 0 ? null : Arrays.copyOf(this.items, this.positionItem);
+    }
+
+    /**
+     * Method adding comment to item.
+     * @param id string id.
+     * @param comment comment.
+     */
+    public void addComment(String id, Comment comment) {
+        for (int index = 0; index < this.items.length; index++) {
+            if ((this.items[index] != null) && (this.items[index].getId().equals(id))) {
+                this.items[index].addComment(comment);
+                break;
+            }
+        }
     }
 
 

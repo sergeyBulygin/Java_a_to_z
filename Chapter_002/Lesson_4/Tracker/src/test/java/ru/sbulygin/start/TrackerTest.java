@@ -2,7 +2,7 @@ package ru.sbulygin.start;
 
 import org.junit.Before;
 import org.junit.Test;
-import ru.sbulygin.models.Bug;
+import ru.sbulygin.models.Comment;
 import ru.sbulygin.models.Item;
 import ru.sbulygin.models.Task;
 
@@ -40,6 +40,11 @@ public class TrackerTest {
      */
     private int firstIndex = 0;
 
+    /**
+     * Comment array field.
+     */
+    private Comment comment;
+
 
     /**
      * Information method to test.
@@ -50,7 +55,7 @@ public class TrackerTest {
          testItemEdit = new Task("requestTwo", "descriptionTwo", 120L);
          testItemTwo = new Task("requestThree", "descriptionThree", 130L);
          trackerTest = new Tracker();
-         testItemOne = new Bug("descriptionFour", "requestFour", 140L);
+         comment = new Comment("Test comment");
     }
 
     /**
@@ -116,6 +121,16 @@ public class TrackerTest {
         trackerTest.addItem(testItemTwo);
         Item[] checked = {testItemOne, testItemTwo};
         assertThat(trackerTest.getAll(), is(checked));
+    }
+
+    /**
+     * Test method addComment class Tracker.
+     */
+    @Test
+    public void whenAddCommentThenCommentsArrayAIsSameComment() {
+        trackerTest.addItem(testItemOne);
+        trackerTest.addComment(trackerTest.getAll()[firstIndex].getId(), comment);
+        assertThat(trackerTest.getAll()[firstIndex].getComment()[firstIndex], is(comment));
     }
 
 }

@@ -10,9 +10,18 @@ package ru.sbulygin.models;
 public class Comment {
 
     /**
-     * The comment field.
+     * The field comment.
      */
     private String comment;
+    /**
+     * The field position in the array.
+     */
+    private int position = 0;
+
+    /**
+     * The field remark array.
+     */
+    private String[] remark;
 
     /**
      * Constructor to create a comment.
@@ -24,22 +33,32 @@ public class Comment {
     }
 
     /**
-     * Getter method for comment.
+     * Getter method for remark.
      * @return comment.
      */
-    public String getComment() {
+    public String[] getRemark() {
 
-        return this.comment;
+        return this.remark;
     }
 
     /**
-     * Setter method for comment.
-     * @param comment line for setting comment.
+     * Setter method for remark.
+     * @param remark line for setting comment.
      */
-    public void setComment(String comment) {
+    public void setRemark(String[] remark) {
 
-        this.comment = comment;
+        this.remark = remark;
     }
 
+    /**
+     * Add method for comment.
+     * @param comment string comment.
+     */
+    public void addComment(String comment) {
+        if (remark == null) {
+            remark = new String[position];
+        }
+        remark[position++] = comment;
+    }
  }
 
