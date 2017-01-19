@@ -13,7 +13,7 @@
 	
 	<parent>
         <groupId>ru.sbulygin</groupId>
-        <artifactId>Chapter_002</artifactId>
+        <artifactId>Lesson_3</artifactId>
         <version>1.0</version>
     </parent>
 	

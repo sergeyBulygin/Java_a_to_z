@@ -17,10 +17,11 @@ public class Comment {
     /**
      * The field remark array.
      */
-    private String[] remark;
+    private String[] remark = new String[10];
 
     /**
      * Getter method for remark.
+     *
      * @return comment.
      */
     public String[] getRemark() {
@@ -30,13 +31,15 @@ public class Comment {
 
     /**
      * Add method for comment.
+     *
      * @param comment string comment.
      */
     public void addComment(String comment) {
-        if (remark == null) {
-            remark = new String[position];
-        }
-        remark[position++] = comment;
-    }
- }
+            if (remark == null) {
+                remark = new String[position];
+            }
+            remark[position++] = comment;
 
+    }
+
+}

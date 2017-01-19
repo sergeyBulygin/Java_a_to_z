@@ -86,7 +86,9 @@ public class Item {
      * @return comments.
      */
     public Comment[] getComment() {
-        return this.comments;
+        Comment[] result = new Comment[position];
+        System.arraycopy(this.comments, 0, result, 0, position);
+        return result;
     }
 
     /**

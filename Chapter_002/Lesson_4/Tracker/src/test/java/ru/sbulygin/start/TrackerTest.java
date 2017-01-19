@@ -6,6 +6,7 @@ import ru.sbulygin.models.Comment;
 import ru.sbulygin.models.Item;
 import ru.sbulygin.models.Task;
 
+
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
@@ -128,6 +129,7 @@ public class TrackerTest {
      */
     @Test
     public void whenAddCommentThenCommentsArrayAIsSameComment() {
+        comment.addComment("test");
         trackerTest.addItem(testItemOne);
         trackerTest.addComment(trackerTest.getAll()[firstIndex].getId(), comment);
         assertThat(trackerTest.getAll()[firstIndex].getComment()[firstIndex], is(comment));
