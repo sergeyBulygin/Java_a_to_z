@@ -28,14 +28,9 @@ public class Item {
     private long dateCreation;
 
     /**
-     * The field position in the array.
-     */
-    private int position = 0;
-
-    /**
      * The comment field of the array.
      */
-    private Comment[] comments;
+    private Comment comments = new Comment();
 
     /**
      * Constructor of Item class.
@@ -83,20 +78,22 @@ public class Item {
 
     /**
      * Getter method for comment array field.
-     * @return comments.
+     * @return result result sting line comments.
      */
-    public Comment[] getComment() {
-        Comment[] result = new Comment[position];
-        System.arraycopy(this.comments, 0, result, 0, position);
+    public String getComment() {
+        String result = "";
+        for (String temp : this.comments.getRemark()) {
+            result += temp + System.lineSeparator();
+        }
         return result;
     }
 
     /**
      * Setter method for comment array field.
-     * @param comments comments.
+     * @param comment comments.
      */
-    public void setComment(Comment[] comments) {
-        this.comments = comments;
+    public void setComment(String comment) {
+        this.comments.addComment(comment);
     }
 
     /**
@@ -129,14 +126,6 @@ public class Item {
      */
     public void setId(String id) {
         this.id = id;
-    }
-
-    /**
-     * Method for adding comment to item.
-     * @param comment comment for adding.
-     */
-    public void addComment(Comment comment) {
-        this.comments[position++] = comment;
     }
 
 }

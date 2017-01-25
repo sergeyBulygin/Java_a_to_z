@@ -1,6 +1,6 @@
 package ru.sbulygin.start;
 
-import ru.sbulygin.models.Comment;
+
 import ru.sbulygin.models.Item;
 
 import java.util.Arrays;
@@ -15,7 +15,7 @@ public class Tracker {
     /**
      * The item field of the array.
      */
-    private Item[] items = new Item[10];
+    private Item[] items;
 
     /**
      * The field position in the array.
@@ -41,6 +41,13 @@ public class Tracker {
      */
     public void addItem(Item item) {
         item.setId(this.generateId());
+        if (items == null) {
+            items = new Item[1];
+        } else {
+            Item[] temp = new Item[positionItem + 1];
+            System.arraycopy(items, 0, temp, 0, positionItem);
+            this.items = temp;
+        }
         this.items[positionItem++] = item;
         }
 
@@ -62,16 +69,42 @@ public class Tracker {
      * @param id id item.
      */
     public void deleteItem(String id) {
-        for (int index = 0; index < this.positionItem; index++) {
-            if ((this.items[index] != null) && (this.items[index].getId().equals(id))) {
-                System.arraycopy(items, index + 1, items, index, this.positionItem - index - 1);
-                this.items[positionItem--] = null;
-                break;
-            }
+        int index = getPositionOfId(id);
+        if (index >= 0) {
+            removeIndex(index);
         }
+
     }
 
     /**
+     * Method search position item in array.
+     * @param id string id item.
+     * @return result .
+     */
+    private int getPositionOfId(String id) {
+        int result = -1;
+        for (int index = 0; index <= this.positionItem; index++) {
+            if ((this.items[index] != null) && (this.items[index].getId().equals(id))) {
+                result = index;
+                break;
+            }
+        }
+        return result;
+    }
+
+    /**
+     * Method removes a cell array.
+     * @param index found id from the method getPositionOfId.
+     */
+    private void removeIndex(int index) {
+        if (index >= 0 && index < items.length) {
+            Item[] temp = new Item[items.length - 1];
+            System.arraycopy(items, 0, temp, 0, index);
+            System.arraycopy(items, index + 1, temp, index, items.length - index - 1);
+        }
+    }
+
+     /**
      * Method for find item by name.
      * @param name name item.
      * @return items found by name.
@@ -116,10 +149,10 @@ public class Tracker {
      * @param id string id.
      * @param comment comment.
      */
-    public void addComment(String id, Comment comment) {
+    public void addComment(String id, String comment) {
         for (int index = 0; index < this.items.length; index++) {
             if ((this.items[index] != null) && (this.items[index].getId().equals(id))) {
-                this.items[index].addComment(comment);
+                this.items[index].setComment(comment);
                 break;
             }
         }
