@@ -7,7 +7,7 @@
 	<artifactId>Lesson_4</artifactId>
 	<packaging>pom</packaging>
 	<version>1.0</version>
-	<name>Lesson_2</name>
+	<name>Lesson_4</name>
 	<url>http://job4j.ru</url>
 	
 	<modules>
