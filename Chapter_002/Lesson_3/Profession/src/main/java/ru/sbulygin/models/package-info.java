@@ -1,5 +1,5 @@
 /**
- * Package of Profession.
+ * Package of ProfessionTest.
  * @author sbulygin.
  * @since 09.01.2017.
  * @Version 1.0.

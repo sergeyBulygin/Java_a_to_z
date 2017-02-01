@@ -7,7 +7,14 @@
 	<artifactId>Profession</artifactId>
 	<packaging>jar</packaging>
 	<version>1.0</version>
-	<name>Profession</name>
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>RELEASE</version>
+        </dependency>
+    </dependencies>
+    <name>Profession</name>
 	<url>http://job4j.ru</url>
 	
 	<parent>
