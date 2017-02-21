@@ -25,7 +25,7 @@ public class DoctorTest {
      */
     @Before
     public  void infoForTest() {
-        testDoc = new Doctor(35, "Pupkin Ivan Ivanovich", "male", "doctor", true, "therapist");
+          testDoc = new Doctor(35, "Pupkin Ivan Ivanovich", "male", "doctor", true, "therapist");
     }
 
     /**
@@ -34,10 +34,10 @@ public class DoctorTest {
 
     @Test
     public void whenGetCategoryThenReturnCategory() {
-        testDoc.setCategory("therapist");
-        String result = testDoc.getCategory();
-        String checked = "therapist";
-        assertThat(result, is(checked));
+         testDoc.setCategory("therapist");
+         String result = testDoc.getCategory();
+         String checked = "therapist";
+         assertThat(result, is(checked));
     }
 
     /**
@@ -45,9 +45,9 @@ public class DoctorTest {
      */
     @Test
     public void whenPatientTrueAddThenStringLine() {
-        String result = testDoc.diagnosis();
-        String checked = "Pupkin Ivan Ivanovich diagnoses patient";
-        assertThat(result, is(checked));
+         String result = testDoc.diagnosis();
+         String checked = "Pupkin Ivan Ivanovich diagnoses patient";
+         assertThat(result, is(checked));
     }
 
     /**
@@ -55,8 +55,8 @@ public class DoctorTest {
      */
     @Test
     public void whenPatientHealingThenStringLine() {
-        String result = testDoc.healing();
-        String checked = "Pupkin Ivan Ivanovich treats patient";
-        assertThat(result, is(checked));
+         String result = testDoc.healing();
+         String checked = "Pupkin Ivan Ivanovich treats patient";
+         assertThat(result, is(checked));
     }
 }

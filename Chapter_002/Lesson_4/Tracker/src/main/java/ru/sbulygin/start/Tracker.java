@@ -7,6 +7,8 @@ import java.util.Arrays;
 import java.util.Random;
 
 /**
+ * Class Tracker.
+ *
  * @author ru.sbulygin.start.
  * @since 10.01.2017.
  */
@@ -20,19 +22,19 @@ public class Tracker {
     /**
      * The field position in the array.
      */
-    private int positionItem = 0;
+    private int countItem = 0;
 
     /**
      * The field random for generate id items.
      */
-    private static final Random RN = new Random();
+    private static final Random RN = new Random(System.currentTimeMillis());
 
     /**
      * Method for generate random id to item.
      * @return random id.
      */
     private String generateId() {
-        return String.valueOf(System.currentTimeMillis() + RN.nextInt());
+        return String.valueOf(RN.nextInt(10000));
     }
 
     /**
@@ -44,11 +46,11 @@ public class Tracker {
         if (items == null) {
             items = new Item[1];
         } else {
-            Item[] temp = new Item[positionItem + 1];
-            System.arraycopy(items, 0, temp, 0, positionItem);
+            Item[] temp = new Item[countItem + 1];
+            System.arraycopy(items, 0, temp, 0, countItem);
             this.items = temp;
         }
-        this.items[positionItem++] = item;
+        this.items[countItem++] = item;
         }
 
     /**
@@ -56,7 +58,7 @@ public class Tracker {
      * @param item item.
      */
     public void updateItem(Item item) {
-        for (int index = 0; index != this.positionItem; index++) {
+        for (int index = 0; index < this.countItem; index++) {
             if ((this.items[index] != null) && (this.items[index].getId().equals(item.getId()))) {
                 this.items[index] = item;
                 break;
@@ -83,7 +85,7 @@ public class Tracker {
      */
     private int getPositionOfId(String id) {
         int result = -1;
-        for (int index = 0; index <= this.positionItem; index++) {
+        for (int index = 0; index <= this.countItem; index++) {
             if ((this.items[index] != null) && (this.items[index].getId().equals(id))) {
                 result = index;
                 break;
@@ -101,6 +103,8 @@ public class Tracker {
             Item[] temp = new Item[items.length - 1];
             System.arraycopy(items, 0, temp, 0, index);
             System.arraycopy(items, index + 1, temp, index, items.length - index - 1);
+            items = temp;
+            countItem--;
         }
     }
 
@@ -141,7 +145,7 @@ public class Tracker {
      * @return all items.
      */
     public Item[] getAll() {
-        return this.positionItem == 0 ? null : Arrays.copyOf(this.items, this.positionItem);
+        return this.countItem == 0 ? null : Arrays.copyOf(this.items, this.countItem);
     }
 
     /**

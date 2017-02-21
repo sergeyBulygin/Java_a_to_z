@@ -87,9 +87,9 @@ public class TrackerTest {
     public void whenAddTwoTasksAndDeleteTwoThenArrayWithSecondTask() {
         trackerTest.addItem(testItemOne);
         trackerTest.addItem(testItemTwo);
-        Item[] result = trackerTest.getAll();
         trackerTest.deleteItem(testItemOne.getId());
         Item[] resultAfterDel = trackerTest.getAll();
+        Item[] result = trackerTest.getAll();
         assertThat(result, is(resultAfterDel));
 
     }
@@ -132,7 +132,7 @@ public class TrackerTest {
     public void whenAddCommentThenCommentsArrayAIsSameComment() {
         trackerTest.addItem(testItemOne);
         trackerTest.addComment(trackerTest.getAll()[firstIndex].getId(), "test");
-        assertThat(trackerTest.getAll()[firstIndex].getComment(), is("test" + System.lineSeparator()));
+        assertThat(trackerTest.getAll()[firstIndex].getComment(), is("test"));
     }
 
 }

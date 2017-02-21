@@ -82,8 +82,14 @@ public class Item {
      */
     public String getComment() {
         String result = "";
-        for (String temp : this.comments.getRemark()) {
-            result += temp + System.lineSeparator();
+        String[] allRemarks = this.comments.getRemark();
+        if (allRemarks != null) {
+            for (String temp : allRemarks) {
+                if (result != "") {
+                    result += System.lineSeparator();
+                }
+                result += temp;
+            }
         }
         return result;
     }
