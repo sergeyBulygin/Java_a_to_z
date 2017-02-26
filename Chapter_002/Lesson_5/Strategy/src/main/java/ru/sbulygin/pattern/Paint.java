@@ -27,8 +27,8 @@ public class Paint {
      * @param shape shape.
      * @return string figure.
      */
-    public String draw(Shape shape) {
-        return  shape.pic(shape);
+    public  void  draw(Shape shape) {
+        System.out.print(shape.pic(shape));
     }
 
 

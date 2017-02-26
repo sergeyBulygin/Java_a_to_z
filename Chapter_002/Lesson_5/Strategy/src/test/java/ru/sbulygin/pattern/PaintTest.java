@@ -2,6 +2,10 @@ package ru.sbulygin.pattern;
 
 import org.junit.Test;
 
+import java.io.ByteArrayOutputStream;
+import java.io.OutputStream;
+import java.io.PrintStream;
+
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
@@ -20,7 +24,10 @@ public class PaintTest {
     public void whenShapeTriangleThenReturnTriangle() {
         Shape triangle = new Triangle(3);
         Paint test = new Paint(triangle);
-        String result = test.draw(triangle);
+        OutputStream out = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(out));
+        test.draw(triangle);
+        final String result = out.toString();
         assertThat(result, is("   *   \r\n  * *  \r\n * * * \r\n"));
     }
 
@@ -31,7 +38,10 @@ public class PaintTest {
     public void whenShapeSquareThenReturnSquare() {
         Shape square = new Square(3);
         Paint test = new Paint(square);
-        String result = square.pic(square);
+        OutputStream out = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(out));
+        test.draw(square);
+        final String result = out.toString();
         assertThat(result, is("* * *\r\n* * *\r\n* * *\r\n"));
     }
 }
