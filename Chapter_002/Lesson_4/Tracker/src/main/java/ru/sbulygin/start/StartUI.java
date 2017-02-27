@@ -46,9 +46,10 @@ public class StartUI {
 
         UserAction exitAction = new BaseAction(exitActionKey, "Exit program") {
 
+            private boolean exit = false;
+
             @Override
             public void execute(Input input, Tracker tracker) {
-                System.exit(0);
             }
         };
 
@@ -57,7 +58,14 @@ public class StartUI {
         do {
             menu.show();
             menu.select(input.ask("Select: ", ranges));
+            if (exitActionKey == 7) {
+                String answer = input.ask("Are you sure? y/n: ");
+                if(answer.equals("y")) {
+                    break;
+                }
+            }
         } while (!"y".equals(this.input.ask("Exit? (y/n): ")));
+
     }
     /**
      * The entry point of the program.
