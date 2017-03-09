@@ -4,23 +4,15 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 	<groupId>ru.sbulygin</groupId>
-	<artifactId>Chapter_002</artifactId>
-	<packaging>pom</packaging>
+	<artifactId>Game</artifactId>
+	<packaging>jar</packaging>
 	<version>1.0</version>
-	<name>Chapter_002</name>
+	<name>Game</name>
 	<url>http://job4j.ru</url>
-	
-	<modules>
-		<module>Lesson_1</module>
-	   <module>Lesson_3</module>
-	   <module>Lesson_4</module>
-	   <module>Lesson_5</module>
-		<module>Test_task</module>
-	</modules>
 	
 	<parent>
         <groupId>ru.sbulygin</groupId>
-        <artifactId>Java_a_to_z</artifactId>
+        <artifactId>Test_task</artifactId>
         <version>1.0</version>
     </parent>
 	
@@ -30,4 +22,5 @@
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
+
 </project>
