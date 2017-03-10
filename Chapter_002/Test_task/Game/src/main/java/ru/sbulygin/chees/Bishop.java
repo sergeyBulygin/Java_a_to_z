@@ -32,8 +32,8 @@ public class Bishop extends Figure {
      */
     @Override
     public Cell[] way(Cell distance) throws ImpossibleMoveException {
-        int posX = position.getPivotX();
-        int posY = position.getPivotY();
+        int posX = getPosition().getPivotX();
+        int posY = getPosition().getPivotY();
         int distX = distance.getPivotX();
         int distY = distance.getPivotY();
 

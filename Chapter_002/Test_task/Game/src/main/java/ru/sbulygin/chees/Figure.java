@@ -15,7 +15,7 @@ public abstract class Figure {
     /**
      * The field position of the figure on the Board.
      */
-    public final Cell position;
+    private final Cell position;
 
     /**
      * Field X coordinate of the destination cell speed figure.
@@ -98,6 +98,10 @@ public abstract class Figure {
             posY += goalY;
         }
         return direction;
+    }
+
+     protected Cell getPosition() {
+        return position;
     }
 
 }
