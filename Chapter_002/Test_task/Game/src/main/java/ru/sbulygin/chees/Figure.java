@@ -83,7 +83,11 @@ public abstract class Figure {
         return direction;
     }
 
-     protected Cell getPosition() {
+    /**
+     * Getter for position.
+     * @return position.
+     */
+    protected Cell getPosition() {
         return position;
     }
 
