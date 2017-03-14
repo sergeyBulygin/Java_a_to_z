@@ -66,30 +66,13 @@ public abstract class Figure {
         int distX = distance.getPivotX();
         int distY = distance.getPivotY();
 
-        if (distX > posX) {
-            goalX = 1;
-        } else if (distX < posX) {
-            goalX = -1;
-        } else {
-            goalX = 0;
-        }
-
-        if (distY > posY) {
-            goalY = 1;
-        } else if (distY < posY) {
-            goalY = -1;
-        } else {
-            goalY = 0;
-        }
+        goalX = distX > posX ? 1 : distX < posX ? -1 : 0;
+        goalY = distY > posY ? 1 : distY < posY ? -1 : 0;
 
         int vectorX = Math.abs(distX - posX);
         int vectorY = Math.abs(distY - posY);
 
-        if (vectorX > vectorY) {
-            lengthPath = vectorX;
-        } else {
-            lengthPath = vectorY;
-        }
+        lengthPath = vectorX > vectorY ? vectorX : vectorY;
 
         Cell[] direction = new Cell[lengthPath + 1];
         for (int value = 0; value != lengthPath + 1; value++) {

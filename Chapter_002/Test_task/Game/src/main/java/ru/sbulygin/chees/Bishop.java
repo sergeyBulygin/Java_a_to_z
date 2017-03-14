@@ -20,7 +20,7 @@ public class Bishop extends Figure {
      * The constructor of the Bishop class generates the class object.
      * @param position position of the figure on the Board.
      */
-    public Bishop(Cell position) {
+    public Bishop(Cell position)1 {
         super(position);
     }
 
