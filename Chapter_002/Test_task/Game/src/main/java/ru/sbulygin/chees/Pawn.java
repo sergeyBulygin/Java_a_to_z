@@ -19,7 +19,7 @@ public class Pawn extends Figure {
     /**
      * The first stroke of the figure.
      */
-    private int firstMove;
+    private boolean firstMove = true;
 
     /**
      * The constructor of the Pawn class generates the class object.
@@ -43,13 +43,13 @@ public class Pawn extends Figure {
         int distX = distance.getPivotX();
         int distY = distance.getPivotY();
 
-        if (firstMove == 2 || firstMove == 1) {
-            if (posX == distX && posY != distY) {
-                direction = motionDirection(distance);
-            } else {
-                throw new ImpossibleMoveException("Pawn can't walk.");
-            }
+        int vectorY =  Math.abs(distY - posY);
 
+        if (firstMove && posX == distX && (vectorY == 2 || vectorY == 1)) {
+            direction = motionDirection(distance);
+            firstMove = false;
+        } else {
+            throw new ImpossibleMoveException("Pawn can't walk.");
         }
         return direction;
     }
