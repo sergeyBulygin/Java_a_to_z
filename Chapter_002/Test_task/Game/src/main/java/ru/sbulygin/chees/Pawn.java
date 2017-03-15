@@ -45,7 +45,7 @@ public class Pawn extends Figure {
 
         int vectorY =  Math.abs(distY - posY);
 
-        if (firstMove && posX == distX && (vectorY == 2 || vectorY == 1)) {
+        if (posX == distX && (vectorY == 1 || firstMove && vectorY == 2)) {
             direction = motionDirection(distance);
             firstMove = false;
         } else {
