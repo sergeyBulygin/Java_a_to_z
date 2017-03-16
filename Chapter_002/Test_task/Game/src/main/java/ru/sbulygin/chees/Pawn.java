@@ -53,4 +53,5 @@ public class Pawn extends Figure {
         }
         return direction;
     }
+
 }

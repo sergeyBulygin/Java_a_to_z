@@ -1,7 +1,7 @@
 package ru.sbulygin.exeptions;
 
 /**
- * Class ImposibleMoveException.
+ * Class ImpossibleMoveException.
  *
  * @author ru.sbulygin.start.
  * @since 05.03.2017.
