@@ -71,4 +71,27 @@ public class Cell {
         this.pivotY = pivotY;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Cell)) {
+            return false;
+        }
+
+        Cell cell = (Cell) o;
+
+        if (getPivotX() != cell.getPivotX()) {
+            return false;
+        }
+        return getPivotY() == cell.getPivotY();
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getPivotX();
+        result = 31 * result + getPivotY();
+        return result;
+    }
 }

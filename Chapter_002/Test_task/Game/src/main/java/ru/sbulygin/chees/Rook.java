@@ -45,4 +45,5 @@ public class Rook extends Figure {
         }
         return direction;
     }
+
 }

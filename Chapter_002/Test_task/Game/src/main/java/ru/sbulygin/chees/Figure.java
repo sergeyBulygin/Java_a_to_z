@@ -15,7 +15,7 @@ public abstract class Figure {
     /**
      * The field position of the figure on the Board.
      */
-    private final Cell position;
+    private  Cell position;
 
     /**
      * Field X coordinate of the destination cell speed figure.
@@ -91,4 +91,11 @@ public abstract class Figure {
         return position;
     }
 
+    /**
+     * Method clone replaces the coordinates of the figure on a new.
+     * @param dist the cell move figure.
+     */
+    public void clone(Cell dist) {
+        this.position = dist;
+    }
 }
