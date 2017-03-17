@@ -2,6 +2,8 @@ package ru.sbulygin.chees;
 
 import ru.sbulygin.exeptions.ImpossibleMoveException;
 
+import static ru.sbulygin.chees.Cell.getObjectCell;
+
 /**
  * Abstract class Figure.
  *
@@ -25,11 +27,6 @@ public abstract class Figure {
      * Field Y coordinate of the destination cell speed figure.
      */
     private int goalY;
-
-    /**
-     * Place in the array direction of the figure.
-     */
-    private int location = 0;
 
     /**
      * The array length of the path of movement of the figure.
@@ -73,11 +70,11 @@ public abstract class Figure {
 
         lengthPath = vectorX > vectorY ? vectorX : vectorY;
 
-        Cell[] direction = new Cell[lengthPath + 1];
-        for (int value = 0; value != lengthPath + 1; value++) {
-            direction[location++] = Cell.getObjectCell(posX, posY);
+        Cell[] direction = new Cell[lengthPath];
+        for (int value = 0; value != lengthPath; value++) {
             posX += goalX;
             posY += goalY;
+            direction[value] = getObjectCell(posX, posY);
         }
         return direction;
     }

@@ -60,7 +60,7 @@ public class StartUI {
             menu.select(input.ask("Select: ", ranges));
             if (exitActionKey == 7) {
                 String answer = input.ask("Are you sure? y/n: ");
-                if(answer.equals("y")) {
+                if (answer.equals("y")) {
                     break;
                 }
             }

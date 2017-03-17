@@ -14,14 +14,9 @@ import ru.sbulygin.exeptions.OccupiedWayException;
 public class Board {
 
     /**
-     * The number of figures field.
-     */
-    private final int numberFigure = 32;
-
-    /**
      * The array of figures field.
      */
-    private Figure[] figures = new Figure[numberFigure];
+    private Figure[] figures;
 
     /**
      * The maximum value of the coordinates of the cell.
@@ -36,7 +31,7 @@ public class Board {
     /**
      *  The field position the figure in the array.
      */
-    private int figurePosition = 0;
+    private int figureCount = 0;
 
     /**
      * Method getFigure of obtaining the figures.
@@ -45,12 +40,11 @@ public class Board {
      */
     public Figure getFigure(Cell source) {
         Figure result = null;
-        for (Figure figure : this.figures) {
-            if (figure != null) {
-                if (source.equals(figure.getPosition())) {
-                    result = figure;
-                    break;
-                }
+        for (int index = 0; index != figureCount; index++) {
+            if (figures[index].getPosition().equals(source) && figures[index] != null) {
+                result = figures[index];
+                break;
+
             }
         }
         return result;
@@ -61,7 +55,14 @@ public class Board {
      * @param figure figure that I should add.
      */
     public void addFigure(Figure figure) {
-        this.figures[figurePosition++] = figure;
+        if (figures == null) {
+            figures = new Figure[1];
+        } else {
+            Figure[] temp = new Figure[figureCount + 1];
+            System.arraycopy(figures, 0, temp, 0, figureCount);
+            this.figures = temp;
+        }
+        this.figures[figureCount++] = figure;
     }
 
     /**

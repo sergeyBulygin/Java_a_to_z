@@ -60,11 +60,6 @@ public class BoardTest {
     private Pawn pawn;
 
     /**
-     * Fild pawn during the first move.
-     */
-    private Pawn pawnFestMove;
-
-    /**
      * Information method to test.
      */
     @Before
@@ -72,11 +67,10 @@ public class BoardTest {
         this.board = new Board();
         this.queen = new Queen(getObjectCell(6, 3));
         this.bishop = new Bishop(getObjectCell(3, 3));
-        this.rook = new Rook(getObjectCell(0, 3));
+        this.rook = new Rook(getObjectCell(3, 0));
         this.king = new King(getObjectCell(4, 3));
         this.horse = new Horse(getObjectCell(3, 2));
-        this.pawn = new Pawn(getObjectCell(6, 2));
-        this.pawnFestMove = new Pawn(getObjectCell(4, 1));
+        this.pawn = new Pawn(getObjectCell(5, 1));
     }
 
     /**
@@ -101,6 +95,10 @@ public class BoardTest {
         board.move(bishop.getPosition(), getObjectCell(8, 8));
     }
 
+    /*
+    QUEEN.
+     */
+
     /**
      * Testing the movement of the figure of the Queen.
      * @throws ImpossibleMoveException exception in case of impossibility of motion figure.
@@ -110,11 +108,279 @@ public class BoardTest {
     @Test
     public void whenQueenMoveThatSheHaveLastCoordinates() throws ImpossibleMoveException, OccupiedWayException, FigureNotFoundException  {
         board.addFigure(queen);
-//        board.move(queen.getPosition(), getObjectCell(4, 1));
-//        board.move(queen.getPosition(), getObjectCell(1, 1));
-//        board.move(queen.getPosition(), getObjectCell(5, 5));
-        board.move(queen.getPosition(), getObjectCell(3, 6));
-        assertThat(queen.getPosition(), is(getObjectCell(3, 6)));
+        board.move(queen.getPosition(), getObjectCell(4, 1));
+        board.move(queen.getPosition(), getObjectCell(1, 1));
+        board.move(queen.getPosition(), getObjectCell(5, 5));
+        board.move(queen.getPosition(), getObjectCell(3, 5));
+        assertThat(queen.getPosition(), is(getObjectCell(3, 5)));
+    }
+
+    /**
+     * Testing the operation of the exception when the wrong coordinates movement Queen.
+     * @throws ImpossibleMoveException exception in case of impossibility of motion figure.
+     * @throws OccupiedWayException exception if there's other figures.
+     * @throws FigureNotFoundException exception if the figure is not found.
+     */
+    @Test(expected = ImpossibleMoveException.class)
+    public void whenQueenWrongDirectThatTrowException() throws ImpossibleMoveException, OccupiedWayException, FigureNotFoundException {
+        board.addFigure(queen);
+        queen.way(getObjectCell(5, 5));
+    }
+
+    /**
+     * Testing the operation of the exception when on the way of stroke has a different figure.
+     * @throws ImpossibleMoveException exception in case of impossibility of motion figure.
+     * @throws OccupiedWayException exception if there's other figures.
+     * @throws FigureNotFoundException exception if the figure is not found.
+     */
+    @Test(expected = OccupiedWayException.class)
+    public void whenOtherFigureOnMoveQueenThanTrowException() throws ImpossibleMoveException, OccupiedWayException, FigureNotFoundException {
+        board.addFigure(bishop);
+        board.addFigure(queen);
+        board.move(queen.getPosition(), getObjectCell(1, 3));
+    }
+
+    /*
+    BISHOP
+     */
+
+    /**
+     * Testing the movement of the figure of the Bishop.
+     * @throws ImpossibleMoveException exception in case of impossibility of motion figure.
+     * @throws OccupiedWayException exception if there's other figures.
+     * @throws FigureNotFoundException exception if the figure is not found.
+     */
+    @Test
+    public void whenBishopMoveThatHeHasLastCoordinates()  throws ImpossibleMoveException, OccupiedWayException, FigureNotFoundException {
+        board.addFigure(bishop);
+        board.move(bishop.getPosition(), getObjectCell(1, 5));
+        board.move(bishop.getPosition(), getObjectCell(3, 7));
+        board.move(bishop.getPosition(), getObjectCell(6, 4));
+        board.move(bishop.getPosition(), getObjectCell(4, 2));
+        assertThat(bishop.getPosition(), is(getObjectCell(4, 2)));
+    }
+
+    /**
+     * Testing the operation of the exception when the wrong coordinates movement Bishop.
+     * @throws ImpossibleMoveException exception in case of impossibility of motion figure.
+     * @throws OccupiedWayException exception if there's other figures.
+     * @throws FigureNotFoundException exception if the figure is not found.
+     */
+    @Test(expected = ImpossibleMoveException.class)
+    public void whenBishopWrongDirectThatTrowException() throws ImpossibleMoveException, OccupiedWayException, FigureNotFoundException {
+        board.addFigure(bishop);
+        bishop.way(getObjectCell(1, 3));
+    }
+
+    /**
+     * Testing the operation of the exception when on the way of stroke has a different figure.
+     * @throws ImpossibleMoveException exception in case of impossibility of motion figure.
+     * @throws OccupiedWayException exception if there's other figures.
+     * @throws FigureNotFoundException exception if the figure is not found.
+     */
+    @Test(expected = OccupiedWayException.class)
+    public void whenOtherFigureOnMoveBishopThanTrowException() throws ImpossibleMoveException, OccupiedWayException, FigureNotFoundException {
+        board.addFigure(bishop);
+        board.addFigure(pawn);
+        board.move(bishop.getPosition(), getObjectCell(6, 0));
+    }
+
+    /*
+    ROOK.
+     */
+
+    /**
+     * Testing the movement of the figure of the Rook.
+     * @throws ImpossibleMoveException exception in case of impossibility of motion figure.
+     * @throws OccupiedWayException exception if there's other figures.
+     * @throws FigureNotFoundException exception if the figure is not found.
+     */
+    @Test
+    public void whenRookMoveThatHeHasLastCoordinates()  throws ImpossibleMoveException, OccupiedWayException, FigureNotFoundException {
+        board.addFigure(rook);
+        board.move(rook.getPosition(), getObjectCell(6, 0));
+        board.move(rook.getPosition(), getObjectCell(6, 2));
+        board.move(rook.getPosition(), getObjectCell(2, 2));
+        board.move(rook.getPosition(), getObjectCell(2, 5));
+        assertThat(rook.getPosition(), is(getObjectCell(2, 5)));
+    }
+
+    /**
+     * Testing the operation of the exception when the wrong coordinates movement Rook.
+     * @throws ImpossibleMoveException exception in case of impossibility of motion figure.
+     * @throws OccupiedWayException exception if there's other figures.
+     * @throws FigureNotFoundException exception if the figure is not found.
+     */
+    @Test(expected = ImpossibleMoveException.class)
+    public void whenRookWrongDirectThatTrowException() throws ImpossibleMoveException, OccupiedWayException, FigureNotFoundException {
+        board.addFigure(rook);
+        rook.way(getObjectCell(5, 1));
+    }
+
+    /**
+     * Testing the operation of the exception when on the way of stroke has a different figure.
+     * @throws ImpossibleMoveException exception in case of impossibility of motion figure.
+     * @throws OccupiedWayException exception if there's other figures.
+     * @throws FigureNotFoundException exception if the figure is not found.
+     */
+    @Test(expected = OccupiedWayException.class)
+    public void whenOtherFigureOnMoveRookThanTrowException() throws ImpossibleMoveException, OccupiedWayException, FigureNotFoundException {
+        board.addFigure(rook);
+        board.addFigure(bishop);
+        board.move(rook.getPosition(), getObjectCell(3, 4));
+    }
+
+    /*
+    KING.
+     */
+
+    /**
+     * Testing the movement of the figure of the King.
+     * @throws ImpossibleMoveException exception in case of impossibility of motion figure.
+     * @throws OccupiedWayException exception if there's other figures.
+     * @throws FigureNotFoundException exception if the figure is not found.
+     */
+    @Test
+    public void whenKingMoveThatHeHasLastCoordinates()  throws ImpossibleMoveException, OccupiedWayException, FigureNotFoundException {
+        board.addFigure(king);
+        board.move(king.getPosition(), getObjectCell(4, 4));
+        board.move(king.getPosition(), getObjectCell(5, 3));
+        board.move(king.getPosition(), getObjectCell(4, 2));
+        board.move(king.getPosition(), getObjectCell(3, 1));
+        assertThat(king.getPosition(), is(getObjectCell(3, 1)));
+    }
+
+    /**
+     * Testing the operation of the exception when the wrong coordinates movement King.
+     * @throws ImpossibleMoveException exception in case of impossibility of motion figure.
+     * @throws OccupiedWayException exception if there's other figures.
+     * @throws FigureNotFoundException exception if the figure is not found.
+     */
+    @Test(expected = ImpossibleMoveException.class)
+    public void whenKingWrongDirectThatTrowException() throws ImpossibleMoveException, OccupiedWayException, FigureNotFoundException {
+        board.addFigure(king);
+        king.way(getObjectCell(5, 5));
+    }
+
+    /**
+     * Testing the operation of the exception when on the way of stroke has a different figure.
+     * @throws ImpossibleMoveException exception in case of impossibility of motion figure.
+     * @throws OccupiedWayException exception if there's other figures.
+     * @throws FigureNotFoundException exception if the figure is not found.
+     */
+    @Test(expected = OccupiedWayException.class)
+    public void whenOtherFigureOnMoveKingThanTrowException() throws ImpossibleMoveException, OccupiedWayException, FigureNotFoundException {
+        board.addFigure(king);
+        board.addFigure(bishop);
+        board.move(king.getPosition(), getObjectCell(3, 3));
+    }
+
+    /*
+    HORSE.
+     */
+
+    /**
+     * Testing the movement of the figure of the Horse.
+     * @throws ImpossibleMoveException exception in case of impossibility of motion figure.
+     * @throws OccupiedWayException exception if there's other figures.
+     * @throws FigureNotFoundException exception if the figure is not found.
+     */
+    @Test
+    public void whenHorseMoveThatHeHasLastCoordinates()  throws ImpossibleMoveException, OccupiedWayException, FigureNotFoundException {
+        board.addFigure(horse);
+        board.move(horse.getPosition(), getObjectCell(1, 3));
+        board.move(horse.getPosition(), getObjectCell(0, 5));
+        board.move(horse.getPosition(), getObjectCell(2, 4));
+        board.move(horse.getPosition(), getObjectCell(4, 3));
+        assertThat(horse.getPosition(), is(getObjectCell(4, 3)));
+    }
+
+    /**
+     * Testing the operation of the exception when the wrong coordinates movement Horse.
+     * @throws ImpossibleMoveException exception in case of impossibility of motion figure.
+     * @throws OccupiedWayException exception if there's other figures.
+     * @throws FigureNotFoundException exception if the figure is not found.
+     */
+    @Test(expected = ImpossibleMoveException.class)
+    public void whenHorseWrongDirectThatTrowException() throws ImpossibleMoveException, OccupiedWayException, FigureNotFoundException {
+        board.addFigure(horse);
+        horse.way(getObjectCell(0, 2));
+    }
+
+    /**
+     * Testing the operation of the exception when on the way of stroke has a different figure.
+     * @throws ImpossibleMoveException exception in case of impossibility of motion figure.
+     * @throws OccupiedWayException exception if there's other figures.
+     * @throws FigureNotFoundException exception if the figure is not found.
+     */
+    @Test(expected = OccupiedWayException.class)
+    public void whenOtherFigureOnMoveHorseThanTrowException() throws ImpossibleMoveException, OccupiedWayException, FigureNotFoundException {
+        board.addFigure(horse);
+        board.addFigure(rook);
+        board.move(rook.getPosition(), getObjectCell(2, 0));
+        board.move(horse.getPosition(), getObjectCell(2, 0));
+    }
+
+    /*
+    PAWN.
+     */
+
+    /**
+     * Testing the movement of the figure of the Pawn.
+     * @throws ImpossibleMoveException exception in case of impossibility of motion figure.
+     * @throws OccupiedWayException exception if there's other figures.
+     * @throws FigureNotFoundException exception if the figure is not found.
+     */
+    @Test
+    public void whenPawnMoveThatHeHasLastCoordinates()  throws ImpossibleMoveException, OccupiedWayException, FigureNotFoundException {
+        board.addFigure(pawn);
+        board.move(pawn.getPosition(), getObjectCell(5, 2));
+        board.move(pawn.getPosition(), getObjectCell(5, 3));
+        board.move(pawn.getPosition(), getObjectCell(5, 4));
+        board.move(pawn.getPosition(), getObjectCell(5, 5));
+        assertThat(pawn.getPosition(), is(getObjectCell(5, 5)));
+    }
+
+    /**
+     * Testing the movement of the figure of the Pawn when the course first .
+     * @throws ImpossibleMoveException exception in case of impossibility of motion figure.
+     * @throws OccupiedWayException exception if there's other figures.
+     * @throws FigureNotFoundException exception if the figure is not found.
+     */
+    @Test
+    public void whenPawnMoveFirstThatHeHasLastCoordinates()  throws ImpossibleMoveException, OccupiedWayException, FigureNotFoundException {
+        board.addFigure(pawn);
+        board.move(pawn.getPosition(), getObjectCell(5, 3));
+        board.move(pawn.getPosition(), getObjectCell(5, 4));
+        board.move(pawn.getPosition(), getObjectCell(5, 5));
+        board.move(pawn.getPosition(), getObjectCell(5, 6));
+        assertThat(pawn.getPosition(), is(getObjectCell(5, 6)));
+    }
+
+    /**
+     * Testing the operation of the exception when the wrong coordinates movement Pawn.
+     * @throws ImpossibleMoveException exception in case of impossibility of motion figure.
+     * @throws OccupiedWayException exception if there's other figures.
+     * @throws FigureNotFoundException exception if the figure is not found.
+     */
+    @Test(expected = ImpossibleMoveException.class)
+    public void whenPawnWrongDirectThatTrowException() throws ImpossibleMoveException, OccupiedWayException, FigureNotFoundException {
+        board.addFigure(pawn);
+        pawn.way(getObjectCell(4, 2));
+    }
+
+    /**
+     * Testing the operation of the exception when on the way of stroke has a different figure.
+     * @throws ImpossibleMoveException exception in case of impossibility of motion figure.
+     * @throws OccupiedWayException exception if there's other figures.
+     * @throws FigureNotFoundException exception if the figure is not found.
+     */
+    @Test(expected = OccupiedWayException.class)
+    public void whenOtherFigureOnMovePawnThanTrowException() throws ImpossibleMoveException, OccupiedWayException, FigureNotFoundException {
+        board.addFigure(pawn);
+        board.addFigure(queen);
+        board.move(queen.getPosition(), getObjectCell(5, 2));
+        board.move(pawn.getPosition(), getObjectCell(5, 2));
     }
 
 
