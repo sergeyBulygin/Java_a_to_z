@@ -34,6 +34,11 @@ public class Board {
     private int minPivot = 0;
 
     /**
+     *  The field position the figure in the array.
+     */
+    private int figurePosition = 0;
+
+    /**
      * Method getFigure of obtaining the figures.
      * @param source the cell where the figure.
      * @return the desired figure.
@@ -49,6 +54,14 @@ public class Board {
             }
         }
         return result;
+    }
+
+    /**
+     * Method addFigure add figure on Board.
+     * @param figure figure that I should add.
+     */
+    public void addFigure(Figure figure) {
+        this.figures[figurePosition++] = figure;
     }
 
     /**

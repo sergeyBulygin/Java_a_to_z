@@ -2,8 +2,6 @@ package ru.sbulygin.chees;
 
 import ru.sbulygin.exeptions.ImpossibleMoveException;
 
-import static ru.sbulygin.chees.Cell.getObjectCell;
-
 /**
  * Class Horse.
  *
@@ -47,8 +45,8 @@ public class Horse extends Figure {
         int vectorY = Math.abs(distY - posY);
 
         if (vectorX + vectorY == 3 && posX != distX && posY != distY) {
-            direction[spot++] = getObjectCell(posX, distX);
-            direction[spot++] = getObjectCell(posY, distY);
+            direction[spot++] = Cell.getObjectCell(posX, distX);
+            direction[spot++] = Cell.getObjectCell(posY, distY);
         } else {
             throw new ImpossibleMoveException("Horse can't walk.");
         }

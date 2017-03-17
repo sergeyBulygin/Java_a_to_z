@@ -1,7 +1,6 @@
 package ru.sbulygin.chees;
 
 import ru.sbulygin.exeptions.ImpossibleMoveException;
-import static ru.sbulygin.chees.Cell.getObjectCell;
 
 /**
  * Abstract class Figure.
@@ -76,7 +75,7 @@ public abstract class Figure {
 
         Cell[] direction = new Cell[lengthPath + 1];
         for (int value = 0; value != lengthPath + 1; value++) {
-            direction[location++] = getObjectCell(posX, posY);
+            direction[location++] = Cell.getObjectCell(posX, posY);
             posX += goalX;
             posY += goalY;
         }
