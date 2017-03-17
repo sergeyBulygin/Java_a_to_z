@@ -16,10 +16,6 @@ public class Horse extends Figure {
      * An array field of the movement of an horse.
      */
     private Cell[] direction = new Cell[2];
-    /**
-     * Place the coordinates in the array.
-     */
-    private int spot = 0;
 
     /**
      * The constructor of the Horse class generates the class object.
@@ -37,7 +33,7 @@ public class Horse extends Figure {
      */
     @Override
     public Cell[] way(Cell distance) throws ImpossibleMoveException {
-
+        int spot = 0;
         int posX = getPosition().getPivotX();
         int posY = getPosition().getPivotY();
         int distX = distance.getPivotX();
@@ -47,8 +43,7 @@ public class Horse extends Figure {
         int vectorY = Math.abs(distY - posY);
 
         if (vectorX + vectorY == 3 && posX != distX && posY != distY) {
-            direction[spot] = getObjectCell(posX, distX);
-            direction[spot] = getObjectCell(posY, distY);
+            direction[spot++] = getObjectCell(distX, distY);
         } else {
             throw new ImpossibleMoveException("Horse can't walk.");
         }
