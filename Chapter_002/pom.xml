@@ -16,6 +16,7 @@
 	   <module>Lesson_4</module>
 	   <module>Lesson_5</module>
 		<module>Test_task</module>
+		<module>AddTestTask</module>
 	</modules>
 	
 	<parent>
