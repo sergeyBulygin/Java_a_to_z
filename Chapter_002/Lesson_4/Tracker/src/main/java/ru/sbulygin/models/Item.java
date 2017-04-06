@@ -70,7 +70,7 @@ public class Item {
 
     /**
      * Getter method for id field.
-     * @return id item.
+     * @return id.
      */
     public String getId() {
         return this.id;
