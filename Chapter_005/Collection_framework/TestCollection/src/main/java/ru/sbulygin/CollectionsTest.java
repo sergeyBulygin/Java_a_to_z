@@ -1,11 +1,7 @@
 package ru.sbulygin;
 
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.TreeSet;
+import java.util.*;
 
 /**
  * Class CollectionsTest.
@@ -26,9 +22,9 @@ public class CollectionsTest {
     public long add(Collection<String> collection, String line, int amount) {
 
         long startTime = System.currentTimeMillis();
-
+        final Random random = new Random();
         for (int index = 0; index < amount; index++) {
-            collection.add(line);
+            collection.add(Integer.toString(random.nextInt(1_000_000)));
         }
         long finishTime = System.currentTimeMillis();
         return finishTime - startTime;
