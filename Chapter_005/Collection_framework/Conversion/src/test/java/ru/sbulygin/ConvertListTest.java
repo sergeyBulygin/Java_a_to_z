@@ -12,7 +12,7 @@ import static org.junit.Assert.assertThat;
 
 
 /**
- * Class ConvertList.
+ * Class ConvertListTest.
  *
  * @author ru.sbulygin.
  * @since 13.04.2017.

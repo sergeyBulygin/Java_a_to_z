@@ -49,7 +49,7 @@ public class ConvertList {
                 if (iterator.hasNext()) {
                     listArray[row][column] = iterator.next();
                 } else {
-                    listArray[row][column] = 0;
+                    break;
                 }
             }
         }

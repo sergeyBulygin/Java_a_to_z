@@ -9,7 +9,6 @@
 	<url>http://job4j.ru</url>
 	
 	<modules>
-	   <module>ConvertArray</module>
 	   <module>ListInMap</module>
 	   <module>ChangeTracker</module>
 	</modules>
