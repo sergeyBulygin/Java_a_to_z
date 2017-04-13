@@ -3,6 +3,7 @@ package ru.sbulygin;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -36,11 +37,24 @@ public class ConvertListTest {
      * @throws Exception Exception when errors test.
      */
     @Test
-    public void toArray() throws Exception {
+    public void whenUsedCollectionArrayListThatTwoDimensionalArray() throws Exception {
         final List<Integer> testCollection = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
         final int[][] expectedArray = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}, {10, 0, 0}};
         final int rows = 4;
         assertThat(expectedArray, is(new ConvertList().toArray(testCollection, rows)));
+    }
+
+    /**
+     * Test method which converts the arrays worksheet in a single worksheet Integer.
+     * @throws Exception Exception when errors test.
+     */
+    @Test
+    public void whenUsedArraysListsThatOneIntegerList() throws Exception {
+        final List<int[]> testList = new ArrayList<int[]>();
+        testList.add(new int[]{5, 6});
+        testList.add(new int[]{2, 3, 4, 6});
+        final List<Integer> expectedList = Arrays.asList(5, 6, 2, 3, 4, 6);
+        assertThat(expectedList, is(new ConvertList().convert(testList)));
     }
 
 }

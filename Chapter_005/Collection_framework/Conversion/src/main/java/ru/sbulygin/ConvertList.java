@@ -57,4 +57,19 @@ public class ConvertList {
 
     }
 
+    /**
+     * Method converts the sheet arrays in a single Integer worksheet.
+     * @param list collection.
+     * @return collection.
+     */
+    public List<Integer> convert(List<int[]> list) {
+        List<Integer> addArray = new ArrayList<>();
+        for (int[] index : list) {
+            for (int value : index) {
+                addArray.add(value);
+            }
+        }
+        return addArray;
+    }
+
 }
