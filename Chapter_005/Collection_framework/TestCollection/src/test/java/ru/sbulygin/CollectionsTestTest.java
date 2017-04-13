@@ -25,12 +25,12 @@ public class CollectionsTestTest {
     /**
      * A variable number of items added to the collection.
      */
-    private final int elementAdd = 2_000;
+    private final int elementAdd = 2_000_000;
 
     /**
      * A variable number of elements removed from the collection.
      */
-    private final int elementRemove = 1_800;
+    private final int elementRemove = 1_800_000;
 
     /**
      * The string value of the element added to the collection.

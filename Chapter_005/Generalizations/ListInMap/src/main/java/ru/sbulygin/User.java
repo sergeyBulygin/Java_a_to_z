@@ -4,7 +4,7 @@ package ru.sbulygin;
  * Class User.
  *
  * @author ru.sbulygin.
- * @since 09.04.2017.
+ * @since 13.04.2017.
  * @version 1.0.
  */
 public class User {

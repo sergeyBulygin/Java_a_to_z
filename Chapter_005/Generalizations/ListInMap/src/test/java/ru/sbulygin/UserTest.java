@@ -11,7 +11,7 @@ import static org.junit.Assert.assertThat;
  * Class UserTest.
  *
  * @author ru.sbulygin.
- * @since 09.04.2017.
+ * @since 13.04.2017.
  * @version 1.0.
  */
 public class UserTest {
