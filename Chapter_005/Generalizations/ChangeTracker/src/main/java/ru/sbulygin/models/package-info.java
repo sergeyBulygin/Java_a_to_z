@@ -1,7 +1,7 @@
 /**
- * Package of Collection.
+ * Package of Tracker.
  * @author sbulygin.
- * @since 09.01.2017.
+ * @since 21.04.2017.
  * @Version 1.0.
  */
 package ru.sbulygin.models;
