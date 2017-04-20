@@ -5,6 +5,7 @@ import ru.sbulygin.models.Item;
 import ru.sbulygin.models.Task;
 import ru.sbulygin.templates.BaseAction;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -30,7 +31,7 @@ public class MenuTracker {
     /**
      * The actions field of the array.
      */
-    private UserAction[] actions = new UserAction[8];
+    private List<UserAction> actions = new ArrayList<>(8);
 
     /**
      * The position field.
@@ -51,13 +52,13 @@ public class MenuTracker {
      * Method for filling action list.
      */
     public void fillActions() {
-        this.actions[position++] = this.new AddItem(0, "Add the new Item.");
-        this.actions[position++] = new ShowItems(1,  "Show all items.");
-        this.actions[position++] = this.new UpdateItem(2, "Edit Item.");
-        this.actions[position++] = this.new DeleteItem(3, "Delete Item.");
-        this.actions[position++] = this.new FindItemByName(4,  "Find Item by name.");
-        this.actions[position++] = this.new FindItemById(5, "Find Item by ID.");
-        this.actions[position++] = this.new AddComment(6, "Add comments.");
+        this.actions.add(this.new AddItem(0, "Add the new Item."));
+        this.actions.add(new ShowItems(1,  "Show all items."));
+        this.actions.add(this.new UpdateItem(2, "Edit Item."));
+        this.actions.add(this.new DeleteItem(3, "Delete Item."));
+        this.actions.add(this.new FindItemByName(4,  "Find Item by name."));
+        this.actions.add(this.new FindItemById(5, "Find Item by ID."));
+        this.actions.add(this.new AddComment(6, "Add comments."));
     }
 
     /**
@@ -65,7 +66,7 @@ public class MenuTracker {
      * @param action user actions.
      */
     public void addAction(UserAction action) {
-        this.actions[position++] = action;
+        this.actions.add(action);
     }
 
     /**
@@ -73,7 +74,7 @@ public class MenuTracker {
      * @param key key of action.
      */
     public void select(int key) {
-        this.actions[key].execute(this.input, this.tracker);
+        this.actions.get(key).execute(this.input, this.tracker);
     }
 
     /**
