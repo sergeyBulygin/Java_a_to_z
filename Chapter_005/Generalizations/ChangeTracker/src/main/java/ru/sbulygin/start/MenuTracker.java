@@ -34,11 +34,6 @@ public class MenuTracker {
     private List<UserAction> actions = new ArrayList<>(8);
 
     /**
-     * The position field.
-     */
-    private int position = 0;
-
-    /**
      * Constructor of MenuTracker class.
      * @param input input stream from user.
      * @param tracker tracker object.
