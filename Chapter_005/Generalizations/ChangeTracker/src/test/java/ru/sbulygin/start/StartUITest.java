@@ -1,13 +1,13 @@
-package ru.sbulygin;
+package ru.sbulygin.start;
 
 import org.junit.Before;
 import org.junit.Test;
 import ru.sbulygin.models.Item;
 import ru.sbulygin.models.Task;
-import ru.sbulygin.start.Input;
-import ru.sbulygin.start.StartUI;
-import ru.sbulygin.start.StubInput;
-import ru.sbulygin.start.Tracker;
+
+
+
+
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;

@@ -34,7 +34,7 @@ public class UserTest {
     /**
      * Test instance user field.
      */
-    private User testUser = new User(testId, testName, testCity);;
+    private User testUser = new User(testId, testName, testCity);
 
     /**
      * Test constructor User class.

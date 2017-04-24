@@ -10,7 +10,6 @@
 	
 	<modules>
 	   <module>SortUser</module>
-	   <module>Comparator</module>
 	</modules>
 	
 	<parent>
