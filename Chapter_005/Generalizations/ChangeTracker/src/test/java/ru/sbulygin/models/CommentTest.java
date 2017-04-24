@@ -21,6 +21,11 @@ public class CommentTest {
     private String testComment = "test";
 
     /**
+     * Test comment field.
+     */
+    private String testCommentTwo = "test";
+
+    /**
      * Test instance comment field.
      */
     private Comment testComm = new Comment();
@@ -33,6 +38,17 @@ public class CommentTest {
     public void whenAddCommentThatGetThisComment() throws Exception {
         testComm.addComment(testComment);
         assertThat(testComm.getRemark()[0], is(testComment));
+    }
+
+    /**
+     * Test method class Comment.
+     * @throws Exception Exception when errors test.
+     */
+    @Test
+    public void whenAddTwoCommentThatGetSecondComment() throws Exception {
+        testComm.addComment(testComment);
+        testComm.addComment(testCommentTwo);
+        assertThat(testComm.getRemark()[1], is(testCommentTwo));
     }
 
 }

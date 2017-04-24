@@ -66,8 +66,8 @@ public class StartUITest {
         new StartUI(input, trackerTest).init();
         assertThat(trackerTest.getAll().get(0).getName(), is("requestOne"));
         assertThat(trackerTest.getAll().get(0).getDescription(), is("descriptionOne"));
-
     }
+
     /**
      * Test UpdateItem class.
      */
