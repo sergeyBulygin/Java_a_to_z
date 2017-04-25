@@ -48,14 +48,8 @@ public class SortUserTest {
         testUserSet.add(testUserTwo);
         testUserSet.add(testUserTree);
         assertThat(testUserSet, is(testSortUser.sort(testUserList)));
-
-
-
-
-
-
-
-
     }
+
+
 
 }
