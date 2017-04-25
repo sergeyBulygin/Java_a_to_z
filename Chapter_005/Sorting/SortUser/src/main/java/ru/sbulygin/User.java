@@ -68,26 +68,15 @@ public class User implements Comparable<User> {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-
-        User user = (User) o;
-
-        if (age != user.age) {
-            return false;
-        }
-        return name != null ? name.equals(user.name) : user.name == null;
+        return (this.hashCode() == o.hashCode());
     }
 
     @Override
     public int hashCode() {
-        int result = name != null ? name.hashCode() : 0;
-        result = 31 * result + age;
-        return result;
+        int result = 72;
+        int ageHash = this.age * 13;
+        return result + ageHash;
     }
+
 
 }

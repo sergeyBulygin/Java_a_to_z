@@ -41,8 +41,8 @@ public class SortUserTest {
      */
     @Test
     public void whenAddUserListThatGetSortTreeCollection() throws Exception {
-        List<User> testUserList = Arrays.asList(testUserOne, testUserTwo, testUserTree);
         SortUser testSortUser = new SortUser();
+        List<User> testUserList = Arrays.asList(testUserOne, testUserTwo, testUserTree);
         Set<User> testUserSet = new TreeSet<>();
         testUserSet.add(testUserOne);
         testUserSet.add(testUserTwo);
@@ -50,6 +50,28 @@ public class SortUserTest {
         assertThat(testUserSet, is(testSortUser.sort(testUserList)));
     }
 
+    /**
+     * Test sort method of class SortUser, test method sortHash.
+     * @throws Exception Exception when errors test.
+     */
+    @Test
+    public void whenSortHashUserListThatGetSortUserListByHash() throws Exception {
+        List<User> testUserList = Arrays.asList(testUserOne, testUserTwo, testUserTree);
+        List<User> testUserListExpected = Arrays.asList(testUserTree, testUserTwo, testUserOne);
+        SortUser testSortUser = new SortUser();
+        assertThat(testSortUser.sortHash(testUserList), is(testUserListExpected));
+    }
 
+    /**
+     * Test sort method of class SortUser, test method sortLength.
+     * @throws Exception Exception when errors test.
+     */
+    @Test
+    public void whenSortNameLengthUserListThatGetSortUserListByNameLength() throws Exception {
+        List<User> testUserList = Arrays.asList(testUserOne, testUserTwo, testUserTree);
+        List<User> testUserListExpected = Arrays.asList(testUserTwo, testUserOne, testUserTree);
+        SortUser testSortUser = new SortUser();
+        assertThat(testSortUser.sortLength(testUserList), is(testUserListExpected));
+    }
 
 }
