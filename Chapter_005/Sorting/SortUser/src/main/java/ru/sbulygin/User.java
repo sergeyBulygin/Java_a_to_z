@@ -7,7 +7,7 @@ package ru.sbulygin;
  * @since 24.04.2017.
  * @version 1.0.
  */
-public class User implements Comparable {
+public class User implements Comparable<User> {
 
     /**
      * User name field.
@@ -62,9 +62,8 @@ public class User implements Comparable {
     }
 
     @Override
-    public int compareTo(Object o) {
-        User user = (User) o;
-        return this.age - user.getAge();
+    public int compareTo(User o) {
+        return this.age - o.getAge();
     }
 
 }
