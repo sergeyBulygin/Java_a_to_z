@@ -1,4 +1,4 @@
-package ru.sbulygin;
+package ru.sbulygin.model;
 
 /**
  * Class User.
