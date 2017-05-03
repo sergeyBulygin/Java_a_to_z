@@ -46,6 +46,22 @@ public class Account {
     }
 
     /**
+     * Getter requisites field.
+     * @return requisites.
+     */
+    public String getRequisites() {
+        return requisites;
+    }
+
+    /**
+     *  Setter requisites field.
+     * @param requisites requisites.
+     */
+    public void setRequisites(String requisites) {
+        this.requisites = requisites;
+    }
+
+    /**
      * Override equals.
      * @param o object.
      * @return Boolean comparison value.
