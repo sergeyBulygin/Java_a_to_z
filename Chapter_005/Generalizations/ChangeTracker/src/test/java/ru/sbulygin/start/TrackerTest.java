@@ -55,7 +55,7 @@ public class TrackerTest {
      */
     @Before
     public  void infoForTests() {
-         testsItemOne = new Task("requestOne", "descriptionOne", 100L);
+         testsItemOne = new Task("request", "descriptionOne", 100L);
          testsItemEdit = new Task("requestTwo", "descriptionTwo", 120L);
          testsItemTwo = new Task("requestThree", "descriptionThree", 130L);
          trackerTest = new Tracker();

@@ -96,4 +96,5 @@ public class Account {
         result = 31 * result + (requisites != null ? requisites.hashCode() : 0);
         return result;
     }
+
 }

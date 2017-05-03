@@ -91,7 +91,7 @@ public class UserConvertTest {
     private UserConvert testConvert;
 
     /**
-     * he class contains the initialize and instance of the class for tests.
+     * The class contains the initialize and instance of the class for tests.
      */
     @Before
     public void infoForTest() {

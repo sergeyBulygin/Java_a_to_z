@@ -125,7 +125,7 @@ public class BankingOperations {
                                   Account dstAccount, double amount) throws NullUserException, NullAccountException {
         boolean allowedToTransfer = false;
         if (this.bankMap.containsKey(srcUser) && this.bankMap.containsKey(dstUser)) {
-            if (this.bankMap.get(srcUser).contains(srcAccount) && this.bankMap.get(srcUser).contains(dstAccount)) {
+            if (this.bankMap.get(srcUser).contains(srcAccount) && this.bankMap.get(dstUser).contains(dstAccount)) {
                 if (srcAccount.getValue() - amount >= 0) {
                     allowedToTransfer = true;
                     srcAccount.setValue(srcAccount.getValue() - amount);
