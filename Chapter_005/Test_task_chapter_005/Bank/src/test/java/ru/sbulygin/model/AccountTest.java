@@ -1,7 +1,6 @@
 package ru.sbulygin.model;
 
 import org.junit.Test;
-
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
@@ -69,8 +68,8 @@ public class AccountTest {
      */
     @Test
     public void whenHashCodeThenGetResult() {
-        User user = new User(null, null);
-        assertThat(user.hashCode(), is(0));
+        Account account = new Account(0.0, null);
+        assertThat(account.hashCode(), is(0));
     }
 
     /**
@@ -79,6 +78,26 @@ public class AccountTest {
     @Test
     public void whenNotEqualsThenGetFalse() {
         assertThat(testAccount.equals(null), is(false));
+    }
+
+    /**
+     * Test equals user class.
+     */
+    @Test
+    public void whenValueFieldNullEqualsThenGetFalse() {
+        final double value = 0.0;
+        Account account = new Account(value, testRequisites);
+        assertThat(testAccount.equals(account), is(false));
+    }
+
+    /**
+     * Test equals user class.
+     */
+    @Test
+    public void whenRequisitesFieldNullEqualsThenGetFalse() {
+        final String requisites = null;
+        Account account = new Account(testValue, requisites);
+        assertThat(testAccount.equals(account), is(false));
     }
 
 }

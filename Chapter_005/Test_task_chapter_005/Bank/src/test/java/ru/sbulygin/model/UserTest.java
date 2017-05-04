@@ -1,8 +1,6 @@
 package ru.sbulygin.model;
 
-
 import org.junit.Test;
-
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
@@ -31,7 +29,7 @@ public class UserTest {
     private User testUser = new User(testName, testPassport);
 
     /**
-     * Test instance user two field.
+     * Test second instance user two field.
      */
     private User testUserTwo = new User(testName, testPassport);
 
@@ -80,6 +78,26 @@ public class UserTest {
     @Test
     public void whenNotEqualsThenGetFalse() {
         assertThat(testUser.equals(null), is(false));
+    }
+
+    /**
+     * Test equals user class.
+     */
+    @Test
+    public void whenPassportFieldNullEqualsThenGetFalse() {
+        final String passport = null;
+        User user = new User(testName, passport);
+        assertThat(testUser.equals(user), is(false));
+    }
+
+    /**
+     * Test equals user class.
+     */
+    @Test
+    public void whenNameFieldNullEqualsThenGetFalse() {
+        final String name = null;
+        User user = new User(name, testPassport);
+        assertThat(testUser.equals(user), is(false));
     }
 
 }

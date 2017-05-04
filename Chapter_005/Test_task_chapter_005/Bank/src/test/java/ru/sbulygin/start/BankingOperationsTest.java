@@ -6,10 +6,8 @@ import ru.sbulygin.errors.NullAccountException;
 import ru.sbulygin.errors.NullUserException;
 import ru.sbulygin.model.Account;
 import ru.sbulygin.model.User;
-
 import java.util.Iterator;
 import java.util.List;
-
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
