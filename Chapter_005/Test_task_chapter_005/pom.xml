@@ -10,6 +10,7 @@
 	
 	<modules>
 	   <module>Bank</module>
+		<module>Coins</module>
 	</modules>
 	
 	<parent>
