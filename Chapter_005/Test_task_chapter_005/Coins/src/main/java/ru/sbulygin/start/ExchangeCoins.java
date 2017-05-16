@@ -7,7 +7,7 @@ import java.util.List;
  * Class ExchangeCoins.
  *
  * @author ru.sbulygin.
- * @since 28.04.2017.
+ * @since 15.05.2017.
  * @version 1.0.
  */
 public class ExchangeCoins {
@@ -42,7 +42,7 @@ public class ExchangeCoins {
      * @param all A collection of the values added to the collection.
      * @return the sum of the values of.
      */
-    private static int getSumm(List<Integer> all) {
+    public static int getSumm(List<Integer> all) {
         int summ = 0;
         for (int i = 0; i < all.size(); i++) {
             summ += all.get(i);

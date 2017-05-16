@@ -27,9 +27,14 @@ public class UserTest {
     private String testName = "name";
 
     /**
-     * Test instance user field.
+     * Test instance user one field.
      */
     private User userTest = new User(testName, testAge);
+
+    /**
+     * Test instance user field.
+     */
+    private User userTestTwo = new User(testName, testAge);
 
     /**
      * Test constructor User class.
@@ -60,6 +65,23 @@ public class UserTest {
     public void whenSetAgeThatGetThisAge() throws Exception {
         userTest.setAge(testAge);
         assertThat(userTest.getAge(), is(testAge));
+    }
+
+    /**
+     * Test equals for User.
+     */
+    @Test
+    public void whenEqualsThenExpectedTrue() {
+        assertThat(userTest.equals(userTestTwo), is(true));
+    }
+
+    /**
+     * Test not equals for User.
+     */
+    @Test
+    public void whenNotEqualsThenExpectedFalse() {
+        User user = new User("Vasya", 45);
+        assertThat(userTest.equals(user), is(false));
     }
 
 }
