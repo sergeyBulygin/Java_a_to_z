@@ -18,14 +18,9 @@ public class PrimeNumbersIterator implements Iterator {
     private ArrayList<Integer> collection;
 
     /**
-     * Value for next().
-     */
-    private int valueNext;
-
-    /**
      * Index of iterator.
      */
-    private int index;
+    private int index = 0;
 
     /**
      * Constructor.
@@ -37,25 +32,26 @@ public class PrimeNumbersIterator implements Iterator {
 
     @Override
     public boolean hasNext() {
-        int counter = 0;
-        for (int i = index; i < collection.size(); i++) {
-            if (simpleNumbersCheck(i)) {
-                counter++;
+        boolean result = false;
+        for (int i = index + 1; i < collection.size(); i++) {
+            if (simpleNumbersCheck(collection.get(i))) {
+                result = true;
             }
         }
-        return counter > this.valueNext;
+        return result;
     }
 
     @Override
     public Object next() {
         int result = -1;
-        for (int value = index; value < collection.size(); value++) {
-            if (simpleNumbersCheck(collection.get(value))) {
-                result = collection.get(value);
-                index = value + 1;
-                valueNext++;
-                break;
+        if (hasNext()) {
+            for (int value = index + 1; value < collection.size(); value++) {
+                if (simpleNumbersCheck(collection.get(value))) {
+                    result = collection.get(value);
+                    index = value;
+                    break;
 
+                }
             }
         }
         return result;
@@ -66,7 +62,7 @@ public class PrimeNumbersIterator implements Iterator {
      * @param number numbers.
      * @return simple numbers.
      */
-    private boolean simpleNumbersCheck(int number) {
+    public boolean simpleNumbersCheck(int number) {
         boolean result = true;
         if (number < 2) {
             result = false;
@@ -78,4 +74,6 @@ public class PrimeNumbersIterator implements Iterator {
         }
         return result;
     }
+
+
 }

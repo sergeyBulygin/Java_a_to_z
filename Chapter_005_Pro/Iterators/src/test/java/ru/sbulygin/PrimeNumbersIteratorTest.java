@@ -47,6 +47,7 @@ public class PrimeNumbersIteratorTest {
      */
     @Test
     public void whenAddNumbersInCollectionThenResultSimple() {
+
         int expectedResult = 3;
         int expectedResultTwo = 2;
         int expectedResultTree = 5;
@@ -64,15 +65,28 @@ public class PrimeNumbersIteratorTest {
      * Test method hasNext().
      */
     @Test
-    public void whenAddNumbersInCollectionThenResultHasNextTrueForSimpleOrFalseForOther() {
+    public void whenAddNumbersInCollectionThenResultFalse() {
 
         iteratorSimpleTest.next();
-        iteratorSimpleTest.hasNext();
-        iteratorSimpleTest.hasNext();
+        iteratorSimpleTest.next();
+        iteratorSimpleTest.next();
+
+        assertThat(iteratorSimpleTest.hasNext(), is(false));
+
+
+    }
+
+    /**
+     * Test method hasNext().
+     */
+    @Test
+    public void whenAddNumbersInCollectionThenResultHasNextTrueForSimple() {
+
+        iteratorSimpleTest.next();
+
         assertThat(iteratorSimpleTest.hasNext(), is(true));
 
-        iteratorSimpleTest.next();
-        assertThat(iteratorSimpleTest.hasNext(), is(false));
+
     }
 
 }
