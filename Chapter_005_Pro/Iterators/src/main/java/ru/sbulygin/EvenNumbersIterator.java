@@ -16,7 +16,7 @@ public class EvenNumbersIterator implements Iterator {
     /**
      * Collection ArrayList.
      */
-    private ArrayList<Integer> collection = new ArrayList<>();
+    private ArrayList<Integer> collection;
 
     /**
      * Index of iterator.
