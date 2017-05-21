@@ -2,10 +2,10 @@
 <project>
     <modelVersion>4.0.0</modelVersion>
 	<groupId>ru.sbulygin</groupId>
-	<artifactId>Iterator</artifactId>
+	<artifactId>Iterators</artifactId>
 	<packaging>pom</packaging>
 	<version>1.0</version>
-	<name>Iterator</name>
+	<name>Iterators</name>
 	<url>http://job4j.ru</url>
 	
 
