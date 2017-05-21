@@ -40,7 +40,7 @@ public class EvenNumbersIterator implements Iterator {
     public boolean hasNext() {
         int counter = 0;
         for (Integer index : collection) {
-            if (index % 2 == 0) {
+            if (evenNumberCheck(index)) {
                 counter++;
             }
         }
@@ -52,12 +52,25 @@ public class EvenNumbersIterator implements Iterator {
         int result;
         result = 0;
         for (int value = index; value < collection.size(); value++) {
-            if (collection.get(value) % 2 == 0) {
+            if (evenNumberCheck(collection.get(value))) {
                 result = collection.get(value);
                 index = value + 1;
                 valueNext++;
                 break;
             }
+        }
+        return result;
+    }
+
+    /**
+     * The method checks the number of parity.
+     * @param number number check.
+     * @return even number true.
+     */
+    private boolean evenNumberCheck(int number) {
+        boolean result = false;
+        if (number % 2 == 0) {
+            result = true;
         }
         return result;
     }

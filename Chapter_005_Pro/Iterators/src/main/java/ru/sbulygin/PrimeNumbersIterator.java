@@ -62,7 +62,7 @@ public class PrimeNumbersIterator implements Iterator {
      * @param number numbers.
      * @return simple numbers.
      */
-    public boolean simpleNumbersCheck(int number) {
+    private boolean simpleNumbersCheck(int number) {
         boolean result = true;
         if (number < 2) {
             result = false;
