@@ -23,10 +23,6 @@ public class EvenNumbersIterator implements Iterator {
      */
     private int index;
 
-    /**
-     * Value for next().
-     */
-    private int valueNext;
 
     /**
      * Constructor.
@@ -38,44 +34,41 @@ public class EvenNumbersIterator implements Iterator {
 
     @Override
     public boolean hasNext() {
-
-        int counter = 0;
-
-            if (evenNumberCheck() != -1) {
-                counter++;
-            }
-
-        return counter > this.valueNext;
+        boolean result = false;
+        if (evenNumberCheck(false) != null) {
+            result = true;
+        }
+        return result;
     }
 
     @Override
     public Object next() {
-
-        int result;
-        result = 0;
-
-        if (evenNumberCheck() != -1) {
-            result = collection.get(index);
-            index += 1;
-            valueNext++;
-
+        Integer result = null;
+        if (hasNext()) {
+            result = evenNumberCheck(true);
         }
         return result;
     }
 
     /**
-     * The method checks the number of parity.
-     * @return result even check.
+     * The method checks the value of the parity.
+     * @param moveIndex boolean flag for index move.
+     * @return value index.
      */
-    private int evenNumberCheck() {
-
-        int result = -1;
-
+    private Integer evenNumberCheck(boolean moveIndex) {
+        Integer result = null;
         for (int value = index; value < collection.size(); value++) {
-            if (index % 2 == 0) {
-                result = collection.get(index);
+            if (moveIndex) {
+                index++;
+            }
+            if (collection.get(value) % 2 == 0) {
+                result = collection.get(value);
+                break;
             }
         }
         return result;
+
     }
+
+
 }
