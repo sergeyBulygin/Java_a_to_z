@@ -2,17 +2,19 @@
 <project>
     <modelVersion>4.0.0</modelVersion>
 	<groupId>ru.sbulygin</groupId>
-	<artifactId>Iterators</artifactId>
+	<artifactId>Chapter_005_Coll.Pro</artifactId>
 	<packaging>pom</packaging>
 	<version>1.0</version>
-	<name>Iterators</name>
+	<name>Chapter_005_Coll.Pro</name>
 	<url>http://job4j.ru</url>
 	
-
+	<modules>
+		<module>Iterators</module>
+	</modules>
 	
 	<parent>
         <groupId>ru.sbulygin</groupId>
-        <artifactId>Chapter_005_Pro</artifactId>
+        <artifactId>Java_a_to_z</artifactId>
         <version>1.0</version>
     </parent>
 	
