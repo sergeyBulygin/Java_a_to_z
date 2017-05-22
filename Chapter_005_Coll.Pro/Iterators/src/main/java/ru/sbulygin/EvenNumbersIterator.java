@@ -34,11 +34,8 @@ public class EvenNumbersIterator implements Iterator {
 
     @Override
     public boolean hasNext() {
-        boolean result = false;
-        if (evenNumberCheck(false) != null) {
-            result = true;
-        }
-        return result;
+
+        return evenNumberCheck(false) != null;
     }
 
     @Override
