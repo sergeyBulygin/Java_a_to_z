@@ -3,7 +3,6 @@ package ru.sbulygin;
 
 import org.junit.Before;
 import org.junit.Test;
-import ru.sbulygin.Iterators;
 
 import java.util.ArrayList;
 import java.util.Arrays;

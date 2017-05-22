@@ -58,14 +58,21 @@ public class EvenNumbersIteratorTest {
      * Test method hasNext().
      */
     @Test
-    public void whenAddNumbersInCollectionThenResultHasNextTrueOrFalse() {
+    public void whenAddNumbersInCollectionThenResultHasNextTrue() {
         iteratorTest.next();
         iteratorTest.hasNext();
         assertThat(iteratorTest.hasNext(), is(true));
-
-        iteratorTest.next();
-        assertThat(iteratorTest.hasNext(), is(false));
-
-
     }
+
+    /**
+     * Test method hasNext().
+     */
+    @Test
+    public void whenAddNumbersInCollectionThenResultHasNextFalse() {
+        iteratorTest.next();
+        iteratorTest.next();
+
+        assertThat(iteratorTest.hasNext(), is(false));
+    }
+
 }
