@@ -1,20 +1,10 @@
-
-
-{
-  "language": "java",
-  "cache": {
-    "directories": [
-      "$HOME/.m2"
-    ]
-  },
-  "install": [
-    "sudo apt-get install phantomjs",
-    "git clone --depth=1 https://github.com/n1k0/casperjs.git /tmp/casperjs",
-    "export PATH=$PATH:/tmp/casperjs/bin"
-  ],
-  "script": [
-    "mvn clean install -Pqulice --batch-mode --errors"
-  ]
-}
-
+language: java
+jdk:
+- oraclejdk8
+# would just use default install/script but the ./mvnw script errors on travis
+# obviously this only works for maven builds right now...
+install:
+- mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+script:
+- mvn test
 
