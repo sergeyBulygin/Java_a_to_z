@@ -62,4 +62,11 @@ public class SimpleArray<E> {
         System.arraycopy(objects, position + 1, objects, position, objects.length - position - 1);
     }
 
+    /**
+     * Method return size of array.
+     * @return size array.
+     */
+    public int size() {
+        return this.objects.length;
+    }
 }
