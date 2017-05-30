@@ -1,7 +1,9 @@
 package ru.sbulygin;
 
+
 import java.util.Arrays;
 import java.util.Iterator;
+
 
 /**
  * Class ReplicationArrayList.
@@ -21,7 +23,7 @@ public  class ReplicationArrayList<E> implements SimpleContainer<E> {
     /**
      * Length of array.
      */
-    private int index = 0;
+    private int count = 0;
 
     /**
      * Array of element.
@@ -48,7 +50,7 @@ public  class ReplicationArrayList<E> implements SimpleContainer<E> {
      * @param count the number of new elements.
      */
     private void resize(int count) {
-        if (count > 0 && this.container.length < count) {
+        if (count > this.container.length) {
             container = Arrays.copyOf(container, count * 2);
         }
 
@@ -58,16 +60,14 @@ public  class ReplicationArrayList<E> implements SimpleContainer<E> {
      * Method return size array.
      * @return size array.
      */
-    private int size() {
-        return this.index;
+    public int size() {
+        return this.count;
     }
 
     @Override
     public void add(E e) {
-        if (index == container.length - 1) {
-            resize(index + 1);
-        }
-        this.container[index++] = e;
+        resize(count + 1);
+        this.container[count++] = e;
     }
 
     @Override
@@ -77,22 +77,36 @@ public  class ReplicationArrayList<E> implements SimpleContainer<E> {
 
     @Override
     public Iterator<E> iterator() {
-        return new Iterator<E>() {
+        return new ReplicationIterator<>();
+    }
 
-            private int position = 0;
+    /**
+     * Class ReplicationIterator.
+     *
+     * @author sbulygin.
+     * @since 30.05.2017.
+     * @version 1.0.
+     * @param <E> type.
+     */
+    private class ReplicationIterator<E> implements Iterator<E> {
 
-            @Override
-            public boolean hasNext() {
-                return this.position < index;
-            }
+        /**
+         * Position of iterator.
+         */
+        private int position = 0;
 
-            @Override
-            public E next() {
-                return (E) container[this.position++];
-            }
-        };
+        @Override
+        public boolean hasNext() {
+            return this.position < count;
+        }
+
+        @Override
+        public E next() {
+            position++;
+            return (E) container[position++];
+        }
+
     }
 
 
 }
-
