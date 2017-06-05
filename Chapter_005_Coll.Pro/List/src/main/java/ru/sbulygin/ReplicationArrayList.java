@@ -50,10 +50,7 @@ public  class ReplicationArrayList<E> implements SimpleContainer<E> {
      * @param count the number of new elements.
      */
     private void resize(int count) {
-        if (count > this.container.length) {
             container = Arrays.copyOf(container, count * 2);
-        }
-
     }
 
     /**
@@ -66,7 +63,9 @@ public  class ReplicationArrayList<E> implements SimpleContainer<E> {
 
     @Override
     public void add(E e) {
-        resize(count + 1);
+        if (count > this.container.length) {
+            resize(count + 1);
+        }
         this.container[count++] = e;
     }
 
@@ -103,7 +102,7 @@ public  class ReplicationArrayList<E> implements SimpleContainer<E> {
         @Override
         public E next() {
             position++;
-            return (E) container[position++];
+            return (E) container[position];
         }
 
     }
