@@ -3,10 +3,10 @@ package ru.sbulygin;
 import java.util.Iterator;
 
 /**
- * Class ReplicationArrayList.
+ * Class ReplicationLinkedList.
  *
  * @author sbulygin.
- * @since 30.05.2017.
+ * @since 05.06.2017.
  * @version 1.0.
  * @param <E> type.
  */
@@ -30,7 +30,7 @@ public class ReplicationLinkedList<E> implements SimpleContainer<E> {
 
     @Override
     public void add(E e) {
-        Entry<E> newEntry = new Entry<E>(e, null, this.lastElement);
+        Entry<E> newEntry = new Entry<>(e, null, this.lastElement);
         if (lastElement == null) {
             this.firstElement = newEntry;
         } else {
@@ -82,7 +82,7 @@ public class ReplicationLinkedList<E> implements SimpleContainer<E> {
         @Override
         public E next() {
             position++;
-            return (E) get(position - 1);
+            return (E) get(position);
         }
 
     }
@@ -93,19 +93,19 @@ public class ReplicationLinkedList<E> implements SimpleContainer<E> {
      * @return the element is found.
      */
     private Entry<E> finder(int index) {
-        if (index < 0 || index >= size) {
+        if (index < 0 || index > size()) {
             throw new IndexOutOfBoundsException("The element with the given index was not found.");
         }
         Entry<E> searchElement;
         if (index < (size >> 1)) {
             searchElement = this.firstElement;
-            for (int count = 0; count <= index; count++) {
+            for (int count = 0; count < index; count++) {
                 searchElement = searchElement.next;
             }
 
         } else {
             searchElement = this.lastElement;
-            for (int count = size; count > index; count--) {
+            for (int count = size - 1; count > index; count--) {
                 searchElement = searchElement.prev;
             }
         }
@@ -117,7 +117,7 @@ public class ReplicationLinkedList<E> implements SimpleContainer<E> {
      * Private static class for creating Double-linked entries in ReplicationLinkedList.
      * @param <E> The type of the parameter.
      */
-    private static class Entry<E> {
+    private  class Entry<E> {
 
         /**
          *  The element that contains the data type E in the entry.
@@ -149,4 +149,3 @@ public class ReplicationLinkedList<E> implements SimpleContainer<E> {
 
 
 }
-
