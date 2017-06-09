@@ -18,7 +18,8 @@ import static org.junit.Assert.assertThat;
  * @since 13.04.2017.
  * @version 1.0.
  */
-public class UserConvertTest {
+public class
+UserConvertTest {
 
     /**
      * Id first user field.

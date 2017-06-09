@@ -59,9 +59,13 @@ public class ReplicationLinkedListTest {
         testList.add(1);
         testList.add(2);
         testList.add(3);
-        testList.add(4);
+        testList.add(6);
+        testList.add(8);
+        testList.add(12);
+        testList.add(465);
+        testList.add(4567);
 
-        assertThat(testList.get(0), is(1));
+        assertThat(testList.get(6), is(465));
 
 
     }
@@ -154,7 +158,7 @@ public class ReplicationLinkedListTest {
         testList.add(200);
         testList.add(300);
 
-        assertThat(iterator.next(), is(300));
+        assertThat(iterator.next(), is(200));
     }
 
 }

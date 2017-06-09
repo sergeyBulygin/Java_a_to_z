@@ -30,13 +30,20 @@ public class ReplicationLinkedList<E> implements SimpleContainer<E> {
 
     @Override
     public void add(E e) {
-        Entry<E> newEntry = new Entry<>(e, null, this.lastElement);
-        if (lastElement == null) {
+        Entry<E> newEntry = new Entry<>(e, this.firstElement, this.lastElement);
+        if (firstElement == null) {
             this.firstElement = newEntry;
+        } else if (lastElement == null) {
+            newEntry.prev = firstElement;
+            firstElement.next = newEntry;
+            this.lastElement = newEntry;
         } else {
-            newEntry.next = newEntry;
+            Entry<E> test = lastElement;
+            while (test.next != firstElement) {
+                test = test.next;
+            }
+            test.next = newEntry;
         }
-        this.lastElement = newEntry;
         size++;
 
     }
@@ -72,16 +79,19 @@ public class ReplicationLinkedList<E> implements SimpleContainer<E> {
         /**
          * Position of iterator.
          */
-        private int position = 0;
+        private int position = -1;
 
         @Override
         public boolean hasNext() {
-            return this.position != size;
+            return this.position < size - 1;
         }
 
         @Override
         public E next() {
-            position++;
+
+            if (hasNext()) {
+                position++;
+            }
             return (E) get(position);
         }
 
@@ -96,18 +106,9 @@ public class ReplicationLinkedList<E> implements SimpleContainer<E> {
         if (index < 0 || index > size()) {
             throw new IndexOutOfBoundsException("The element with the given index was not found.");
         }
-        Entry<E> searchElement;
-        if (index < (size >> 1)) {
-            searchElement = this.firstElement;
-            for (int count = 0; count < index; count++) {
-                searchElement = searchElement.next;
-            }
-
-        } else {
-            searchElement = this.lastElement;
-            for (int count = size - 1; count > index; count--) {
-                searchElement = searchElement.prev;
-            }
+        Entry<E> searchElement = firstElement;
+        for (int i = 0; i < index; i++) {
+             searchElement = searchElement.next;
         }
         return searchElement;
 
