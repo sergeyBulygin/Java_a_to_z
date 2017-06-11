@@ -39,6 +39,7 @@ public class ReplicationStackTest {
         stackTest.myPush(12);
         stackTest.myPush(576);
         stackTest.myPush(23);
+
         assertThat(stackTest.size(), is(5));
 
     }
@@ -51,6 +52,7 @@ public class ReplicationStackTest {
     public void whenAddTwoElementThanGetLastElement() throws Exception {
         stackTest.myPush(1);
         stackTest.myPush(4);
+
         assertThat(stackTest.myPeek(), is(4));
 
     }
