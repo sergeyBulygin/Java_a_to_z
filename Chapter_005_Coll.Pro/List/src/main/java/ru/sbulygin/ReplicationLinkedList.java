@@ -34,9 +34,11 @@ public class ReplicationLinkedList<E> implements SimpleContainer<E> {
         if (firstElement == null) {
             this.firstElement = newEntry;
         } else if (lastElement == null) {
+
             newEntry.prev = firstElement;
             firstElement.next = newEntry;
             this.lastElement = newEntry;
+
         } else {
             Entry<E> test = lastElement;
             while (test.next != firstElement) {
