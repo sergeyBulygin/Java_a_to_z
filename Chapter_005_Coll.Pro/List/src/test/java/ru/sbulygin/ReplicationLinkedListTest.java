@@ -161,4 +161,17 @@ public class ReplicationLinkedListTest {
         assertThat(iterator.next(), is(200));
     }
 
+    /**
+     * Test remove.
+     * @throws Exception test exception.
+     */
+    @Test
+    public void whenAfterRemoveElementThanNextReturnThisElement() throws Exception {
+        testList.add(1);
+        testList.add(2);
+        testList.remove(0);
+
+        assertThat(iterator.next(), is(2));
+    }
+
 }

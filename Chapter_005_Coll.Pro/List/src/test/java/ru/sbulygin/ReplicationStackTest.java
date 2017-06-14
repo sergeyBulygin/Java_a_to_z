@@ -57,4 +57,17 @@ public class ReplicationStackTest {
 
     }
 
+    /**
+     * Test method myPop.
+     * @throws Exception exception test.
+     */
+    @Test
+    public void whenPopElementThanGetLastElement() throws Exception {
+        stackTest.myPush(1);
+        stackTest.myPush(4);
+
+        assertThat(stackTest.myPop(), is(4));
+
+    }
+
 }

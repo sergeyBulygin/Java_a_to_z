@@ -26,4 +26,16 @@ public class ReplicationStack<E> extends ReplicationLinkedList<E> {
 
         return get(size() - 1);
     }
+
+    /**
+     * Method returns last element and removes it from list.
+     * @return element.
+     */
+    public E myPop() {
+        E element = this.get(size() - 1);
+        remove(size() - 1);
+        return element;
+    }
+
+
 }

@@ -26,5 +26,15 @@ public class ReplicationQueue<E> extends ReplicationLinkedList<E> {
         return this.get(0);
     }
 
+    /**
+     * Return first element from queue and remove it from list.
+     * @return element with zero index.
+     */
+    public E myPoll() {
+        E element = this.get(0);
+        remove(0);
+        return element;
+    }
+
 
 }

@@ -19,34 +19,52 @@ public class ReplicationLinkedList<E> implements SimpleContainer<E> {
     private int size = 0;
 
     /**
-     * First entry in list.
+     *  First entry in list.
      */
-    private Entry<E> firstElement;
-
-    /**
-     * Last entry in list.
-     */
-    private Entry<E> lastElement;
+    private Entry<E> element;
 
     @Override
     public void add(E e) {
-        Entry<E> newEntry = new Entry<>(e, this.firstElement, this.lastElement);
-        if (firstElement == null) {
-            this.firstElement = newEntry;
-        } else if (lastElement == null) {
+        Entry<E> newEntry = new Entry<>(e);
+            if (element == null) {
+                element = newEntry;
+            } else {
+                Entry<E> lastElement = finder(size() - 1);
+                lastElement.next = newEntry;
+                newEntry.prev = lastElement;
 
-            newEntry.prev = firstElement;
-            firstElement.next = newEntry;
-            this.lastElement = newEntry;
-
-        } else {
-            Entry<E> test = lastElement;
-            while (test.next != firstElement) {
-                test = test.next;
             }
-            test.next = newEntry;
-        }
         size++;
+
+    }
+
+    /**
+     * Method removes the element at index.
+     * @param index index element.
+     */
+    public void remove(int index) {
+
+        testEmptyException();
+
+        boundsChecking(index);
+
+        Entry<E> elementDelete = finder(index);
+
+        if (elementDelete.prev != null) {
+            elementDelete.prev.next = elementDelete.next;
+        } else {
+            element = elementDelete.next;
+        }
+
+        if (elementDelete.next != null) {
+            elementDelete.next.prev = elementDelete.prev;
+        } else if (elementDelete.prev != null) {
+            elementDelete.prev.next = null;
+        }
+
+        elementDelete.next = elementDelete.prev;
+        elementDelete.prev = null;
+        size--;
 
     }
 
@@ -85,6 +103,8 @@ public class ReplicationLinkedList<E> implements SimpleContainer<E> {
 
         @Override
         public boolean hasNext() {
+            testEmptyException();
+
             return this.position < size - 1;
         }
 
@@ -105,14 +125,37 @@ public class ReplicationLinkedList<E> implements SimpleContainer<E> {
      * @return the element is found.
      */
     private Entry<E> finder(int index) {
-        if (index < 0 || index > size()) {
-            throw new IndexOutOfBoundsException("The element with the given index was not found.");
-        }
-        Entry<E> searchElement = firstElement;
+
+        testEmptyException();
+
+        boundsChecking(index);
+
+        Entry<E> searchElement = element;
         for (int i = 0; i < index; i++) {
              searchElement = searchElement.next;
         }
         return searchElement;
+
+    }
+
+    /**
+     * Check for an empty collection.
+     */
+    private void testEmptyException() {
+        if (size <= 0) {
+            throw new IndexOutOfBoundsException("Collection empty.");
+        }
+    }
+
+    /**
+     * The method checks the bounds of the list.
+     * @param index index element for check
+     */
+    private void boundsChecking(int index) {
+        if (index < 0 || index > size()) {
+            throw new IndexOutOfBoundsException("The element with the given index was not found.");
+        }
+
 
     }
 
@@ -140,13 +183,9 @@ public class ReplicationLinkedList<E> implements SimpleContainer<E> {
         /**
          * Constructor of class Entry.
          * @param element data to save in entry.
-         * @param next link of next element.
-         * @param prev link of previous element.
          */
-         Entry(E element, Entry<E> next, Entry<E> prev) {
+         Entry(E element) {
             this.element = element;
-            this.next = next;
-            this.prev = prev;
         }
     }
 

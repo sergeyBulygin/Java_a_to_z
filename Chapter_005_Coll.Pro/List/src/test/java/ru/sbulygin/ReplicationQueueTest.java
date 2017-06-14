@@ -53,4 +53,16 @@ public class ReplicationQueueTest {
         assertThat(queueTest.size(), is(4));
     }
 
+    /**
+     * Test method myPoll.
+     * @throws Exception exception test.
+     */
+    @Test
+    public void whenRemoveFirstElementThanReturnFirstElement() throws Exception {
+        queueTest.myOffer(10);
+        queueTest.myOffer(20);
+        assertThat(queueTest.myPoll(), is(10));
+    }
+
+
 }
