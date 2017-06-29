@@ -5,8 +5,8 @@ jdk:
 env:
   global:
   - GH_REF: github.com/sergeyBulygin/Java_a_to_z.git
-  - secure: LxTDuNS/rBWIvKkaEqr79ImZAe48mCdoYCF41coxNXgNoippo4GIBArknqtv+XvdkiuRZ1yGyj6pn8GU33c/yn+krddTUkVCwTbVatbalW5jhQjDbHYym/JcxaK9ZS/3JTeGcWrBgiPqHEEDhCf26vPZsXoMSeVCEORVKTp1BSg=
-  - secure: "eoWlW9GyTJY04P8K3pxayXwU9/hmptQg/LfirispQkV9YvmziCfSzXnatnBhNfud98sCzY8BScXnb+OWLTnjLKpId4rtEqb0aJ40Jc32cUKzgzFAUn7cNcDAbUIfyPAGVqyQqfj/11wYSADwWMMOPlW97ExUtoyiH2WenXuRHso="
+  - secure: AAAAB3NzaC1yc2EAAAADAQABAAABAQDyrboMyJgiuziWwcUsHO7tCfVxqRnRVX2jfJHDmrpEnV+X5Y2k0NIYy3vIgMPkkv6RFv8I44gb6pPHuxHmmtFIxLDa1l2eOtIcb7WhjxnGqOEmeBQPcJ8FfDL+joyxBQhnEBnUhc9icMwoQkaemQzEu+vW7zBLUTiksUzFVNmYjVdnVE2iQEcKpwqNOjFgKxwg5G4suwrA//9c7Avc8G2OPFNULmkZ8XgoBKVAZs/l/KoEGU7oLwmvHyEFyxrfJIjCOjQuwdr99Lf9DnMcMMPbzTPzkNaC/fmYv4S/TJDjuXu+6+CRnH6aaCeSFMikNLszkB7LHKEs2MedhLqYg20D
+  
   
 before_install:
 - export DISPLAY=:99.0
