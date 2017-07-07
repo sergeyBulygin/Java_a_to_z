@@ -21,7 +21,7 @@ public class ReplicationLinkedList<E> implements SimpleContainer<E> {
     /**
      *  First entry in list.
      */
-    private Entry<E> element;
+    protected Entry<E> element;
 
     @Override
     public void add(E e) {
@@ -163,17 +163,17 @@ public class ReplicationLinkedList<E> implements SimpleContainer<E> {
      * Private static class for creating Double-linked entries in ReplicationLinkedList.
      * @param <E> The type of the parameter.
      */
-    private  class Entry<E> {
+    protected   class Entry<E> {
 
         /**
          *  The element that contains the data type E in the entry.
          */
-        private E element;
+        protected E element;
 
         /**
          * Link of next element in list.
          */
-        private Entry<E> next;
+        protected Entry<E> next;
 
         /**
          *  Link of previous element in list.

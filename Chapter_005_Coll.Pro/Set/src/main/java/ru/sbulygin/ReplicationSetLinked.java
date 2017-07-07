@@ -1,8 +1,6 @@
 package ru.sbulygin;
 
 
-import java.util.Iterator;
-
 /**
  * Class ReplicationSetLinked.
  *
@@ -11,46 +9,13 @@ import java.util.Iterator;
  * @version 1.0.
  * @param <E> type.
  */
-public class ReplicationSetLinked<E> extends ReplicationLinkedList<E> implements Iterator<E> {
+public class ReplicationSetLinked<E> extends ReplicationLinkedList<E> implements SimpleSet<E> {
 
-    /**
-     * Container of objects set collection.
-     */
-    private ReplicationLinkedList<E> containerSet;
-
-    /**
-     * Iterator of set collection.
-     */
-    private ReplicationLinkedIterator<E> iterSet;
-
-    /**
-     * Constructor with default size.
-     */
-    public ReplicationSetLinked() {
-        this.containerSet = new ReplicationLinkedList<>();
-        this.iterSet = new ReplicationLinkedIterator<>();
-    }
-
-    /**
-     * Method adds an item to the collection.
-     * @param e type.
-     */
+    @Override
     public void add(E e) {
-
-       if (!this.checkDuplicateObjects(e)) {
-
-           this.containerSet.add(e);
-       }
-    }
-
-    @Override
-    public boolean hasNext() {
-        return iterSet.hasNext();
-    }
-
-    @Override
-    public E next() {
-        return iterSet.next();
+        if (checkDuplicateObjects(e)) {
+            super.add(e);
+        }
     }
 
     /**
@@ -60,21 +25,17 @@ public class ReplicationSetLinked<E> extends ReplicationLinkedList<E> implements
      */
     private boolean checkDuplicateObjects(E e) {
         boolean result = true;
-        while (this.iterSet.hasNext()) {
-            if (this.iterSet.next().equals(e)) {
-                result = false;
+        Entry<E> searchElement = element;
+        if (size() > 0) {
+            while (searchElement != null) {
+                if (searchElement.element == e) {
+                    result = false;
+                    break;
+                }
+                searchElement = searchElement.next;
             }
         }
         return result;
-    }
-
-    public static void main(String[] args) {
-        ReplicationSetLinked<Integer> set = new ReplicationSetLinked<>();
-        set.add(1);
-        System.out.println(set);
-
-
-
     }
 
 
