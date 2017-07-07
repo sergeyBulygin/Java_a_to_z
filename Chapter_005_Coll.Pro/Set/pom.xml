@@ -7,6 +7,15 @@
 	<version>1.0</version>
 	<name>Set</name>
 	<url>http://job4j.ru</url>
+	<dependencies>
+		<dependency>
+			<groupId>ru.sbulygin</groupId>
+			<artifactId>List</artifactId>
+			<version>1.0</version>
+		</dependency>
+	</dependencies>
+
+
 	
 
 	

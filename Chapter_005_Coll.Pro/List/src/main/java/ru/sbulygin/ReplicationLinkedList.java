@@ -94,7 +94,7 @@ public class ReplicationLinkedList<E> implements SimpleContainer<E> {
      * @version 1.0.
      * @param <E> type.
      */
-    private class ReplicationLinkedIterator<E> implements Iterator<E> {
+    public class ReplicationLinkedIterator<E> implements Iterator<E> {
 
         /**
          * Position of iterator.
