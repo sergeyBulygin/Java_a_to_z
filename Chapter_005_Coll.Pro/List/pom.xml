@@ -1,9 +1,9 @@
 
 <project>
     <modelVersion>4.0.0</modelVersion>
-
+	<groupId>ru.sbulygin</groupId>
 	<artifactId>List</artifactId>
-	<packaging>pom</packaging>
+	<packaging>jar</packaging>
 	<version>1.0</version>
 	<name>List</name>
 	<url>http://job4j.ru</url>

@@ -34,11 +34,6 @@ public class AbstractStoreTest {
     private User userTestOne;
 
     /**
-     * Second user for tests.
-     */
-    private User userTestTwo;
-
-    /**
      * Prepare stores for tests.
      */
     @Before
@@ -47,10 +42,13 @@ public class AbstractStoreTest {
         this.userStoreTest = new UserStore(4);
         this.roleStoreTest = new RoleStore(4);
         this.userTestOne = new User();
-        this.userTestTwo = new User();
+        /*
+      Second user for tests.
+     */
+        User userTestTwo = new User();
 
         this.userTestOne.setId("1234");
-        this.userTestTwo.setId("5678");
+        userTestTwo.setId("5678");
 
         this.userStoreTest.add(userTestOne);
         this.userStoreTest.add(userTestTwo);

@@ -19,27 +19,32 @@ public class ReplicationLinkedList<E> implements SimpleContainer<E> {
     private int size = 0;
 
     /**
-     *  First entry in list.
+     * First entry in list.
      */
-    protected Entry<E> element;
+    private Entry<E> element;
 
     @Override
     public void add(E e) {
         Entry<E> newEntry = new Entry<>(e);
-            if (element == null) {
-                element = newEntry;
-            } else {
-                Entry<E> lastElement = finder(size() - 1);
-                lastElement.next = newEntry;
-                newEntry.prev = lastElement;
+        if (element == null) {
+            element = newEntry;
+        } else {
+            Entry<E> lastElement = finder(size() - 1);
+            lastElement.next = newEntry;
+            newEntry.prev = lastElement;
 
-            }
+        }
         size++;
 
     }
 
+    public Entry<E> getElement() {
+        return element;
+    }
+
     /**
      * Method removes the element at index.
+     *
      * @param index index element.
      */
     public void remove(int index) {
@@ -75,6 +80,7 @@ public class ReplicationLinkedList<E> implements SimpleContainer<E> {
 
     /**
      * Method getting size of list.
+     *
      * @return size of list.
      */
     public int size() {
@@ -89,10 +95,10 @@ public class ReplicationLinkedList<E> implements SimpleContainer<E> {
     /**
      * Class ReplicationLinkedIterator.
      *
-     * @author sbulygin.
-     * @since 30.05.2017.
-     * @version 1.0.
      * @param <E> type.
+     * @author sbulygin.
+     * @version 1.0.
+     * @since 30.05.2017.
      */
     public class ReplicationLinkedIterator<E> implements Iterator<E> {
 
@@ -121,6 +127,7 @@ public class ReplicationLinkedList<E> implements SimpleContainer<E> {
 
     /**
      * Method looks up the element at index in list.
+     *
      * @param index index of element.
      * @return the element is found.
      */
@@ -132,7 +139,7 @@ public class ReplicationLinkedList<E> implements SimpleContainer<E> {
 
         Entry<E> searchElement = element;
         for (int i = 0; i < index; i++) {
-             searchElement = searchElement.next;
+            searchElement = searchElement.next;
         }
         return searchElement;
 
@@ -149,6 +156,7 @@ public class ReplicationLinkedList<E> implements SimpleContainer<E> {
 
     /**
      * The method checks the bounds of the list.
+     *
      * @param index index element for check
      */
     private void boundsChecking(int index) {
@@ -161,33 +169,54 @@ public class ReplicationLinkedList<E> implements SimpleContainer<E> {
 
     /**
      * Private static class for creating Double-linked entries in ReplicationLinkedList.
+     *
      * @param <E> The type of the parameter.
      */
-    protected   class Entry<E> {
+    protected class Entry<E> {
 
         /**
-         *  The element that contains the data type E in the entry.
+         * The element that contains the data type E in the entry.
          */
-        protected E element;
+        private E element;
 
         /**
          * Link of next element in list.
          */
-        protected Entry<E> next;
+        private Entry<E> next;
 
         /**
-         *  Link of previous element in list.
+         * Link of previous element in list.
          */
         private Entry<E> prev;
 
         /**
          * Constructor of class Entry.
+         *
          * @param element data to save in entry.
          */
-         Entry(E element) {
+        Entry(E element) {
             this.element = element;
+        }
+
+        /**
+         * Getter for element field.
+         *
+         * @return element.
+         */
+        public E getEntryElement() {
+            return element;
+        }
+
+        /**
+         * Getter for next element field.
+         *
+         * @return next element.
+         */
+        public Entry<E> getNext() {
+            return next;
         }
     }
 
-
 }
+
+

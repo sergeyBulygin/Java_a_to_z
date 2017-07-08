@@ -3,10 +3,17 @@
     <modelVersion>4.0.0</modelVersion>
 	<groupId>ru.sbulygin</groupId>
 	<artifactId>Set</artifactId>
-	<packaging>pom</packaging>
+	<packaging>jar</packaging>
 	<version>1.0</version>
 	<name>Set</name>
 	<url>http://job4j.ru</url>
+
+	<parent>
+        <groupId>ru.sbulygin</groupId>
+        <artifactId>Chapter_005_Coll.Pro</artifactId>
+        <version>1.0</version>
+    </parent>
+
 	<dependencies>
 		<dependency>
 			<groupId>ru.sbulygin</groupId>
@@ -14,16 +21,6 @@
 			<version>1.0</version>
 		</dependency>
 	</dependencies>
-
-
-	
-
-	
-	<parent>
-        <groupId>ru.sbulygin</groupId>
-        <artifactId>Chapter_005_Coll.Pro</artifactId>
-        <version>1.0</version>
-    </parent>
 	
 	
 	<properties>

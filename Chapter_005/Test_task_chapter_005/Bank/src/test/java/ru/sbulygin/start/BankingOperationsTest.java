@@ -21,44 +21,9 @@ import static org.junit.Assert.assertThat;
 public class BankingOperationsTest {
 
     /**
-     * Test name field.
-     */
-    private final String testName = "name";
-
-    /**
-     * Test second name field.
-     */
-    private final String testNameTwo = "nameTwo";
-
-    /**
-     * Test passport field.
-     */
-    private final String testPassport = "12345";
-
-    /**
-     * Test second passport field.
-     */
-    private final String testPassportTwo = "111111";
-
-    /**
      * Test value field.
      */
     private final double testValue = 99.9;
-
-    /**
-     * Test second value field.
-     */
-    private final double testValueTwo = 99.9;
-
-    /**
-     * Test requisites field.
-     */
-    private final String testRequisites = "1234567890";
-
-    /**
-     * Test second requisites field.
-     */
-    private final String testRequisitesTwo = "121212121";
 
     /**
      *  Test instance BankingOperations field.
@@ -91,9 +56,37 @@ public class BankingOperationsTest {
     @Before
     public void infoForTest() {
         testBank = new BankingOperations();
+        /*
+      Test passport field.
+     */
+        String testPassport = "12345";
+        /*
+      Test name field.
+     */
+        String testName = "name";
         testUser = new User(testName, testPassport);
+        /*
+      Test second passport field.
+     */
+        String testPassportTwo = "111111";
+        /*
+      Test second name field.
+     */
+        String testNameTwo = "nameTwo";
         testUserTwo = new User(testNameTwo, testPassportTwo);
+        /*
+      Test requisites field.
+     */
+        String testRequisites = "1234567890";
         testAccount = new Account(testValue, testRequisites);
+        /*
+      Test second requisites field.
+     */
+        String testRequisitesTwo = "121212121";
+        /*
+      Test second value field.
+     */
+        double testValueTwo = 99.9;
         testAccountTwo = new Account(testValueTwo, testRequisitesTwo);
     }
 

@@ -24,15 +24,16 @@ public class ReplicationSetLinked<E> extends ReplicationLinkedList<E> implements
      * @return boolean result of check.
      */
     private boolean checkDuplicateObjects(E e) {
+
         boolean result = true;
-        Entry<E> searchElement = element;
+        Entry<E> searchElement = getElement();
         if (size() > 0) {
             while (searchElement != null) {
-                if (searchElement.element == e) {
+                if (searchElement.getEntryElement() == e) {
                     result = false;
                     break;
                 }
-                searchElement = searchElement.next;
+                searchElement = searchElement.getNext();
             }
         }
         return result;

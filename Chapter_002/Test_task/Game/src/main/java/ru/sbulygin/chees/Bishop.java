@@ -12,11 +12,6 @@ import ru.sbulygin.exeptions.ImpossibleMoveException;
 public class Bishop extends Figure {
 
     /**
-     * An array field of the movement of an bishop.
-     */
-    private Cell[] direction;
-
-    /**
      * The constructor of the Bishop class generates the class object.
      * @param position position of the figure on the Board.
      */
@@ -37,6 +32,10 @@ public class Bishop extends Figure {
         int distX = distance.getPivotX();
         int distY = distance.getPivotY();
 
+        /*
+      An array field of the movement of an bishop.
+     */
+        Cell[] direction;
         if (Math.abs(distX - posX) == Math.abs(distY - posY)) {
             direction = motionDirection(distance);
         } else {
