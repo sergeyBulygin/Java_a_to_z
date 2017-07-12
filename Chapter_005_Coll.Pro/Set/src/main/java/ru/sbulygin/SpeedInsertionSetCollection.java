@@ -17,7 +17,7 @@ import java.util.List;
 public class SpeedInsertionSetCollection<E> implements SimpleSet<E> {
 
     /**
-     * Array of element.
+     * Collection of elements.
      */
     private List<E> container;
 

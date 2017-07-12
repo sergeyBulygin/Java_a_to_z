@@ -13,7 +13,7 @@
 		<module>Generics</module>
 		<module>Set</module>
 		<module>List</module>
-
+		<module>Map</module>
 	</modules>
 	
 	<parent>
