@@ -59,25 +59,48 @@ public class UserTest {
     }
 
     @Test
-    public void whenAddTwoIdenticalUsersAreNotOverridingEqualsAndHashCodeThenToPrintBothNewValues() {
+    public void whenAddTwoIdenticalUsersAreNotOverridingEqualsAndHashCodeThenToPrintBothNewValuesEqualsFalse() {
 
         mapForTest.put(firstUserTest, "Bulygin");
         mapForTest.put(secondUserTest, "Uschenko");
 
         message("A printout of the map with no overridden equals and hashCode: ");
+
+        System.out.println(firstUserTest.equals(secondUserTest));
+        System.out.println(String.format("First User hashCode : %s", firstUserTest.hashCode()));
+        System.out.println(String.format("First User hashCode : %s", firstUserTest.hashCode()));
         System.out.println(mapForTest);
     }
 
     @Test
-    public void whenAddTwoIdenticalUsersAreOverridingHashCodeThenToPrintBothNewValues() {
+    public void whenAddTwoIdenticalUsersAreOverridingHashCodeThenToPrintBothNewValuesEqualsFalse() {
 
         mapForTest.put(firstUserTest, "Studies");
         mapForTest.put(secondUserTest, "Java");
 
         message("A printout of the map with overridden hashCode: ");
+
+        System.out.println(firstUserTest.equals(secondUserTest));
         System.out.println(String.format("First User hashCode : %s", firstUserTest.hashCode()));
         System.out.println(String.format("First User hashCode : %s", firstUserTest.hashCode()));
         System.out.println(mapForTest);
     }
+
+    @Test
+    public void whenAddTwoIdenticalUsersAreOverridingEqualsThenToPrintBothNewValuesEqualsTrue() {
+
+        mapForTest.put(firstUserTest, "Collection");
+        mapForTest.put(secondUserTest, "Map");
+
+        message("A printout of the map with overridden equals: ");
+
+        System.out.println(firstUserTest.equals(secondUserTest));
+        System.out.println(String.format("First User hashCode : %s", firstUserTest.hashCode()));
+        System.out.println(String.format("First User hashCode : %s", firstUserTest.hashCode()));
+        System.out.println(mapForTest);
+    }
+
+
+
 
 }
