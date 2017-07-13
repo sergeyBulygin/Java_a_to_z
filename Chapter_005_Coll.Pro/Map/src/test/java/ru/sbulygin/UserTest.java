@@ -59,12 +59,24 @@ public class UserTest {
     }
 
     @Test
-    public void whenAddTwoIdenticalUsersAreNotOverridingEqualsAndHashCodeThen() {
+    public void whenAddTwoIdenticalUsersAreNotOverridingEqualsAndHashCodeThenToPrintBothNewValues() {
 
         mapForTest.put(firstUserTest, "Bulygin");
         mapForTest.put(secondUserTest, "Uschenko");
 
         message("A printout of the map with no overridden equals and hashCode: ");
+        System.out.println(mapForTest);
+    }
+
+    @Test
+    public void whenAddTwoIdenticalUsersAreOverridingHashCodeThenToPrintBothNewValues() {
+
+        mapForTest.put(firstUserTest, "Studies");
+        mapForTest.put(secondUserTest, "Java");
+
+        message("A printout of the map with overridden hashCode: ");
+        System.out.println(String.format("First User hashCode : %s", firstUserTest.hashCode()));
+        System.out.println(String.format("First User hashCode : %s", firstUserTest.hashCode()));
         System.out.println(mapForTest);
     }
 
