@@ -62,5 +62,8 @@ public class User {
         return birthday;
     }
 
-
+    @Override
+    public String toString() {
+        return this.name;
+    }
 }
