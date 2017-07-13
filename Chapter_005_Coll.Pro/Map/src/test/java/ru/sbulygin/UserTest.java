@@ -100,7 +100,20 @@ public class UserTest {
         System.out.println(mapForTest);
     }
 
+    @Test
+    public void whenAddTwoIdenticalUsersAreOverridingEqualsAndHashCodeThenToPrintBothNewValuesEqualsTrue() {
 
+        mapForTest.put(firstUserTest, "Equals");
+        mapForTest.put(secondUserTest, "HashCode");
+
+        message("A printout of the map with  overridden equals and hashCode: ");
+
+        System.out.println(firstUserTest.equals(secondUserTest));
+        System.out.println(String.format("First User hashCode : %s", firstUserTest.hashCode()));
+        System.out.println(String.format("First User hashCode : %s", firstUserTest.hashCode()));
+        System.out.println(mapForTest.get(firstUserTest));
+        System.out.println(mapForTest.get(secondUserTest));
+    }
 
 
 }
