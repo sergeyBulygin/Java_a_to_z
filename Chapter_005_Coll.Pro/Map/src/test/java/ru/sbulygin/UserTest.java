@@ -101,7 +101,7 @@ public class UserTest {
     }
 
     @Test
-    public void whenAddTwoIdenticalUsersAreOverridingEqualsAndHashCodeThenToPrintBothNewValuesEqualsTrue() {
+    public void whenAddTwoIdenticalUsersAreOverridingEqualsAndHashCodeThenToPrintNewValuesEqualsTrue() {
 
         mapForTest.put(firstUserTest, "Equals");
         mapForTest.put(secondUserTest, "HashCode");
