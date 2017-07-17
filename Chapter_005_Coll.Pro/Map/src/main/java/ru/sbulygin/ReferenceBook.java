@@ -20,6 +20,7 @@ public class ReferenceBook<T, V> implements SimpleMap<T, V> {
      */
     private Entry[] container;
 
+
     /**
      * The size of the map.
      */
