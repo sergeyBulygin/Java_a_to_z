@@ -86,8 +86,8 @@ public class User {
 
         User user = (User) o;
 
-        return children == user.children &&
-                (name != null ? name.equals(user.name) : user.name == null) &&
-                (birthday != null ? birthday.equals(user.birthday) : user.birthday == null);
+        return children == user.children
+                && (name != null ? name.equals(user.name) : user.name == null)
+                && (birthday != null ? birthday.equals(user.birthday) : user.birthday == null);
     }
 }

@@ -58,6 +58,9 @@ public class UserTest {
         mapForTest = new HashMap<>();
     }
 
+    /**
+     * Test the map with no overridden equals and hashCode.
+     */
     @Test
     public void whenAddTwoIdenticalUsersAreNotOverridingEqualsAndHashCodeThenToPrintBothNewValuesEqualsFalse() {
 
@@ -72,6 +75,9 @@ public class UserTest {
         System.out.println(mapForTest);
     }
 
+    /**
+     * Test the map with overridden hashCode.
+     */
     @Test
     public void whenAddTwoIdenticalUsersAreOverridingHashCodeThenToPrintBothNewValuesEqualsFalse() {
 
@@ -86,6 +92,9 @@ public class UserTest {
         System.out.println(mapForTest);
     }
 
+    /**
+     * Test the map with overridden equals.
+     */
     @Test
     public void whenAddTwoIdenticalUsersAreOverridingEqualsThenToPrintBothNewValuesEqualsTrue() {
 
@@ -100,6 +109,9 @@ public class UserTest {
         System.out.println(mapForTest);
     }
 
+    /**
+     * the map with  overridden equals and hashCode.
+     */
     @Test
     public void whenAddTwoIdenticalUsersAreOverridingEqualsAndHashCodeThenToPrintNewValuesEqualsTrue() {
 
