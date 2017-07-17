@@ -19,7 +19,10 @@ public class ReferenceBook<T, V> implements SimpleMap<T, V> {
      * An array of items.
      */
     private Entry[] container;
+<<<<<<< HEAD
 
+=======
+>>>>>>> b74ac5e... Implement your own data structure - the directory.[#1008] #23
 
     /**
      * The size of the map.
