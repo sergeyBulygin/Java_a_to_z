@@ -18,7 +18,7 @@ public class ReferenceBook<T, V> implements SimpleMap<T, V> {
     /**
      * An array of items.
      */
-    private Entry[] container;1
+    private Entry[] container;
 
     /**
      * The size of the map.
