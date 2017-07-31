@@ -38,6 +38,10 @@ public class ReplicationLinkedList<E> implements SimpleContainer<E> {
 
     }
 
+    /**
+     * Getter for element.
+     * @return element.
+     */
     public Entry<E> getElement() {
         return element;
     }
