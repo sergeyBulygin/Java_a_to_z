@@ -10,7 +10,7 @@ import java.util.Iterator;
  * @version 1.0.
  * @param <E> type.
  */
-public class Tree <E extends Comparable<E>> implements SimpleTree<E> {
+public class Tree <E extends Comparable <E>> implements SimpleTree<E> {
 
 
 
