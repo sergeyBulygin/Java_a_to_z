@@ -4,7 +4,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
+
 
 /**
  * Class ReplicationSetLinkedTest.
@@ -30,6 +31,10 @@ public class ReplicationSetLinkedTest {
 
     }
 
+    /**
+     * Test ReplicationSetLinked.
+     * @throws Exception exception.
+     */
     @Test
     public void whenAddObjectInCollectionThenSizeNotDuplicated() throws Exception {
 

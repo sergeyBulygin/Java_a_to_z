@@ -2,28 +2,18 @@
 <project>
     <modelVersion>4.0.0</modelVersion>
 	<groupId>ru.sbulygin</groupId>
-	<artifactId>Chapter_005_Coll.Pro</artifactId>
-	<packaging>pom</packaging>
+	<artifactId>Tree</artifactId>
+	<packaging>jar</packaging>
 	<version>1.0</version>
-	<name>Chapter_005_Coll.Pro</name>
+	<name>Tree</name>
 	<url>http://job4j.ru</url>
-	
-	<modules>
-		<module>Iterators</module>
-		<module>Generics</module>
-		<module>Set</module>
-		<module>List</module>
-		<module>Map</module>
-		<module>Tree</module>
-	</modules>
-	
+
 	<parent>
         <groupId>ru.sbulygin</groupId>
-        <artifactId>Java_a_to_z</artifactId>
+        <artifactId>Chapter_005_Coll.Pro</artifactId>
         <version>1.0</version>
     </parent>
-	
-	
+
 	<properties>
 	    <maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>

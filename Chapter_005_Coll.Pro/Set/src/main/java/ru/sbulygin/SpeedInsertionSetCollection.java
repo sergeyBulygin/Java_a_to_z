@@ -82,6 +82,9 @@ public class SpeedInsertionSetCollection<E> implements SimpleSet<E> {
      */
     private class IteratorSpeedSet implements Iterator<E> {
 
+        /**
+         * Position iterator.
+         */
         private int position = 0;
 
         @Override
