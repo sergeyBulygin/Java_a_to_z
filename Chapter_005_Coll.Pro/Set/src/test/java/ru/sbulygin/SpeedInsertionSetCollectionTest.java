@@ -2,6 +2,9 @@ package ru.sbulygin;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import java.util.Iterator;
+
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
@@ -14,6 +17,11 @@ import static org.junit.Assert.assertThat;
  * @version 1.0.
  */
 public class SpeedInsertionSetCollectionTest {
+
+    /**
+     * Instance Iterator.
+     */
+    private Iterator iterator;
 
     /**
      * Instance of SpeedInsertionSetCollection.
@@ -45,6 +53,7 @@ public class SpeedInsertionSetCollectionTest {
     public  void infoForTest() {
         testSpeedSet = new SpeedInsertionSetCollection<>();
         testArraySet = new ReplicationSetArray<>(999);
+        iterator = testSpeedSet.iterator();
 
     }
 
@@ -81,5 +90,34 @@ public class SpeedInsertionSetCollectionTest {
         assertThat(testArraySet.size(), is(999));
 
     }
+
+    /**
+     * Method tests iterator (True) .
+     */
+    @Test
+    public void whenAddElementsArrayListThenHasNextTrue() {
+        testSpeedSet.add(1);
+        testSpeedSet.add(3);
+        testSpeedSet.add(5);
+        testSpeedSet.add(2);
+
+        assertThat(iterator.hasNext(), is(true));
+
+    }
+
+    /**
+     * Method tests iterator (false).
+     */
+    @Test
+    public void whenAddElementsArrayListThenHasNextFalse() {
+        testSpeedSet.add(1);
+        testSpeedSet.add(3);
+        iterator.next();
+        iterator.next();
+
+        assertThat(iterator.hasNext(), is(false));
+
+    }
+
 
 }

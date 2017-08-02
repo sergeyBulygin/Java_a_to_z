@@ -9,6 +9,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 
+import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
+
+
 /**
  * Module UserTest.
  *
@@ -27,6 +33,11 @@ public class UserTest {
      * Second instance of User.
      */
     private User secondUserTest;
+
+    /**
+     * Third instance of User.
+     */
+    private User thirdUserTest;
 
     /**
      * The transition to the next line.
@@ -55,8 +66,98 @@ public class UserTest {
                                  new GregorianCalendar(1978, 03, 10));
         secondUserTest = new User("Sergey", 3,
                                  new GregorianCalendar(1978, 03, 10));
+        thirdUserTest = new User("Sergey", 3,
+                new GregorianCalendar(1978, 03, 10));
         mapForTest = new HashMap<>();
     }
+
+    /**
+     * Test getter for name field.
+     */
+    @Test
+    public void whenAddNewNameThanGetName() {
+        assertThat(firstUserTest.getName(), is("Sergey"));
+    }
+
+    /**
+     * Test getter for children field.
+     */
+    @Test
+    public void whenAddNewChildrenThanGetChildren() {
+        assertThat(firstUserTest.getChildren(), is(3));
+    }
+
+    /**
+     * Test getter for birthday field.
+     */
+    @Test
+    public void whenAddNewBirthdayThanGetBirthday() {
+        assertThat(firstUserTest.getBirthday(), is(new GregorianCalendar(1978, 03, 10)));
+    }
+
+    /**
+     * Test equals for User.
+     */
+    @Test
+    public void whenEqualsThenExpectedTrue() {
+        assertThat(firstUserTest.equals(secondUserTest), is(true));
+    }
+
+    /**
+     * Test not equals for User.
+     */
+    @Test
+    public void whenNotEqualsThenExpectedFalse() {
+        User user = new User("Vasya", 1, new GregorianCalendar(1976, 10, 10));
+        assertThat(firstUserTest.equals(user), is(false));
+    }
+
+    /**
+     * Test not equals for changed User.
+     */
+    @Test
+    public void whenChangeUserThenExpectedFalse() {
+        mapForTest.put(firstUserTest, "Bulygin");
+        assertThat(firstUserTest.equals(mapForTest.get(firstUserTest)), is(false));
+    }
+
+    /**
+     * Test hashCode User.
+     */
+    @Test
+    public void whenHashCodeUserThenExpectedHashCode() {
+
+        assertThat(firstUserTest.hashCode(), is(firstUserTest.hashCode()));
+
+        assertThat(firstUserTest.equals(secondUserTest), is(firstUserTest.hashCode() == secondUserTest.hashCode()));
+    }
+
+    /**
+     * Test equals for User (All rules).
+     */
+    @Test
+    public void whenUserThenEqualsUserTwoTreeAllRules() {
+
+        assertTrue(firstUserTest.equals(firstUserTest));
+
+        boolean expectedResult = firstUserTest.equals(secondUserTest);
+
+        assertThat(expectedResult, is(secondUserTest.equals(firstUserTest)));
+
+        boolean expectedResultOne = firstUserTest.equals(secondUserTest);
+        boolean expectedResultTwo = secondUserTest.equals(thirdUserTest);
+
+        assertThat(expectedResultOne, is(expectedResultTwo));
+
+        assertFalse(firstUserTest.equals(null));
+
+        assertThat(firstUserTest.equals(thirdUserTest), is(true));
+
+        assertThat(firstUserTest.equals(secondUserTest), is(true));
+
+    }
+
+
 
     /**
      * Test the map with no overridden equals and hashCode.

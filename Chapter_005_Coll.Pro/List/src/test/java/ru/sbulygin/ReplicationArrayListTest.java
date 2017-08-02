@@ -42,6 +42,7 @@ public class ReplicationArrayListTest {
         listTestInitSize = new ReplicationArrayList<>(5);
         iterator = listTestInitSize.iterator();
 
+
     }
 
     /**
@@ -115,6 +116,30 @@ public class ReplicationArrayListTest {
 
         int result = listTestDefaultSize.size();
         int expectedResult = 4;
+
+        assertThat(result, is(expectedResult));
+    }
+
+    /**
+     * Test method resize.
+     * @throws Exception test exception.
+     */
+    @Test
+    public void whenAddElevenElementsThanGetSizeEleven() throws Exception {
+        listTestInitSize.add(1);
+        listTestInitSize.add(2);
+        listTestInitSize.add(3);
+        listTestInitSize.add(4);
+        listTestInitSize.add(5);
+        listTestInitSize.add(6);
+        listTestInitSize.add(7);
+        listTestInitSize.add(8);
+        listTestInitSize.add(9);
+        listTestInitSize.add(10);
+        listTestInitSize.add(11);
+
+        int result = listTestInitSize.size();
+        int expectedResult = 11;
 
         assertThat(result, is(expectedResult));
     }

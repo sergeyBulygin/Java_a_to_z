@@ -63,7 +63,7 @@ public  class ReplicationArrayList<E> implements SimpleContainer<E> {
 
     @Override
     public void add(E e) {
-        if (count > this.container.length) {
+        if (count >= this.container.length) {
             resize(count + 1);
         }
         this.container[count++] = e;

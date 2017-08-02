@@ -1,6 +1,6 @@
 package ru.sbulygin;
 
-import java.util.Arrays;
+
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
@@ -36,7 +36,7 @@ public class ReferenceBook<T, V> implements SimpleMap<T, V> {
     public boolean insert(T key, V value) {
         boolean resultInsert = true;
         int index = hashesIndex(key);
-        if (index != -1 && key != null && container[index] == null) {
+        if (container[index] == null) {
             container[index] = new Entry<>(key, value);
         } else {
             resultInsert = false;
@@ -47,7 +47,7 @@ public class ReferenceBook<T, V> implements SimpleMap<T, V> {
     @Override
     public V get(T key) {
         int index = hashesIndex(key);
-        if (index != -1 && key != null && container[index] != null) {
+        if (container[index] != null) {
             return (V) container[index].value;
         } else {
             throw new NoSuchElementException("The specified key was not found");
@@ -58,7 +58,7 @@ public class ReferenceBook<T, V> implements SimpleMap<T, V> {
     public boolean delete(T key) {
         boolean resultRemove = true;
         int index = hashesIndex(key);
-        if (index != -1 && key != null && container[index] != null) {
+        if (container[index] != null) {
             container[index] = null;
         } else {
             resultRemove = false;
@@ -121,10 +121,15 @@ public class ReferenceBook<T, V> implements SimpleMap<T, V> {
      * @param key key.
      * @return hash of index.
      */
-    private int hashesIndex(T key) {
-        int hashIndex = key.hashCode() % container.length;
-        while (container[hashIndex] != null && container[hashIndex].key != key) {
-            hashIndex = (hashIndex + 31) % container.length;
+    public int hashesIndex(T key) {
+//        int hashIndex = key.hashCode() % container.length;
+//        while (container[hashIndex] != null && container[hashIndex].key != key) {
+//            hashIndex = (hashIndex + 31) % container.length;
+//        }
+//        return hashIndex;
+        int hashIndex = 0;
+        if (key != null) {
+            hashIndex = (key.hashCode()) ^ (hashIndex >>> 16);
         }
         return hashIndex;
     }
@@ -178,11 +183,6 @@ public class ReferenceBook<T, V> implements SimpleMap<T, V> {
         }
 
 
-    }
-
-    @Override
-    public String toString() {
-        return Arrays.toString(container);
     }
 
 

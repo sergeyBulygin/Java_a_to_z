@@ -77,7 +77,7 @@ public class ReplicationSetArray<E> implements SimpleSet<E> {
 
     @Override
     public void add(E e) {
-        if (count > this.container.length) {
+        if (count >= this.container.length) {
             resize(count + 1);
         }
         if (checkDuplicateObjects(e)) {

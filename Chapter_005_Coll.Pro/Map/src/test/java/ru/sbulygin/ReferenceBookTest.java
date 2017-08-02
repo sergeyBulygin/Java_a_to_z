@@ -4,8 +4,10 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 import static org.hamcrest.core.Is.is;
+
 import static org.junit.Assert.assertThat;
 
 
@@ -84,6 +86,26 @@ public class ReferenceBookTest {
     }
 
     /**
+     * Test hashesIndex with null key.
+     */
+    @Test
+    public void whenAddKeyNullThanResultZero() {
+
+        int resultValue = firstBookTest.hashesIndex(null);
+
+        assertThat(resultValue, is(0));
+    }
+
+    /**
+     * Test NoSuchElementException.
+     * @throws NoSuchElementException the exception is when you request the wrong key.
+     */
+    @Test(expected = NoSuchElementException.class)
+    public void whenQueenWrongDirectThatTrowException() throws NoSuchElementException {
+        firstBookTest.get(4);
+    }
+
+    /**
      * Test remove the value for the key.
      */
     @Test
@@ -91,6 +113,15 @@ public class ReferenceBookTest {
         firstBookTest.delete(2);
         final int expectedSize = 2;
         assertThat(firstBookTest.sizeReferenceBook(), is(expectedSize));
+    }
+
+    /**
+     * Test remove the value for wrong the key.
+     */
+    @Test
+    public void whenInsertInMapThreePairAndRemoveValueFourKeyThanFalse() {
+        boolean expectedResult = false;
+        assertThat(firstBookTest.delete(4), is(expectedResult));
     }
 
     /**
@@ -103,7 +134,7 @@ public class ReferenceBookTest {
     }
 
     /**
-     * Test method hasNext().
+     * Test method hasNext() (true).
      */
     @Test
     public void whenIteratorHasNextThanReturnTrue() {
@@ -113,6 +144,20 @@ public class ReferenceBookTest {
 
         boolean expectedResult = iteratorTest.hasNext();
         assertThat(expectedResult, is(true));
+    }
+
+    /**
+     * Test method hasNext() (false).
+     */
+    @Test
+    public void whenIteratorHasNextThanReturnFalse() {
+
+        iteratorTest.next();
+        iteratorTest.next();
+        iteratorTest.next();
+
+        boolean expectedResult = iteratorTest.hasNext();
+        assertThat(expectedResult, is(false));
     }
 
 }

@@ -20,12 +20,12 @@ public class ReplicationSetArrayTest {
     /**
      * Instance of ReplicationArrayList with default size.
      */
-    private ReplicationSetArray<Integer> listTestDefaultSize;
+    private ReplicationSetArray<Integer> setTestDefaultSize;
 
     /**
      * Instance of ReplicationArrayList with initial size.
      */
-    private ReplicationSetArray<Integer> listTestInitSize;
+    private ReplicationSetArray<Integer> setTestInitSize;
 
     /**
      * Instance Iterator.
@@ -38,9 +38,9 @@ public class ReplicationSetArrayTest {
      */
     @Before
     public void setUp() throws Exception {
-        listTestDefaultSize = new ReplicationSetArray<>();
-        listTestInitSize = new ReplicationSetArray<>(3);
-        iterator = listTestInitSize.iterator();
+        setTestDefaultSize = new ReplicationSetArray<>();
+        setTestInitSize = new ReplicationSetArray<>(3);
+        iterator = setTestInitSize.iterator();
 
     }
 
@@ -50,7 +50,7 @@ public class ReplicationSetArrayTest {
      */
     @Test
     public void whenEndSetThatHasNextFalse() throws Exception {
-        listTestInitSize.add(110);
+        setTestInitSize.add(110);
         iterator.next();
 
         boolean result = iterator.hasNext();
@@ -63,8 +63,8 @@ public class ReplicationSetArrayTest {
      */
     @Test
     public void whenAfterNextHasElementThanNextReturnThisElement() throws Exception {
-        listTestInitSize.add(50);
-        listTestInitSize.add(70);
+        setTestInitSize.add(50);
+        setTestInitSize.add(70);
 
         Integer result = (Integer) iterator.next();
 
@@ -77,7 +77,7 @@ public class ReplicationSetArrayTest {
      */
     @Test
     public void whenAddOneElementThanHasNextResultTrue() throws Exception {
-        listTestInitSize.add(50);
+        setTestInitSize.add(50);
 
         boolean result = iterator.hasNext();
 
@@ -90,13 +90,32 @@ public class ReplicationSetArrayTest {
      */
     @Test
     public void whenAddFourElementsThanGetSizeFour() throws Exception {
-        listTestDefaultSize.add(1);
-        listTestDefaultSize.add(2);
-        listTestDefaultSize.add(1);
+        setTestDefaultSize.add(1);
+        setTestDefaultSize.add(2);
+        setTestDefaultSize.add(1);
 
 
-        int result = listTestDefaultSize.size();
+        int result = setTestDefaultSize.size();
         int expectedResult = 2;
+
+        assertThat(result, is(expectedResult));
+    }
+
+    /**
+     * Test method resize.
+     * @throws Exception test exception.
+     */
+    @Test
+    public void whenAddFourElementsThanSizeFour() throws Exception {
+        setTestInitSize.add(1);
+        setTestInitSize.add(2);
+        setTestInitSize.add(3);
+        setTestInitSize.add(4);
+        setTestInitSize.add(5);
+
+
+        int result = setTestInitSize.size();
+        int expectedResult = 5;
 
         assertThat(result, is(expectedResult));
     }
