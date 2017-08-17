@@ -1,6 +1,10 @@
 package ru.sbulygin;
 
+
 import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
 
 /**
  * Class Tree.
@@ -12,16 +16,87 @@ import java.util.Iterator;
  */
 public class Tree<E extends Comparable<E>> implements SimpleTree<E> {
 
+    /**
+     * The root node.
+     */
+    private Node<E> root;
 
+    /**
+     * The constructor of the Tree class.
+     * @param root the root node.
+     */
+    public Tree(Node<E> root) {
+        this.root = root;
+    }
 
+    /**
+     * The method checks the node value of the parent in the child list.
+     * And returns the result.
+     * @param children list the child objects.
+     * @param parent parent node.
+     * @return search result parent node.
+     */
+    private Node<E> find(List<Node<E>> children, E parent) {
+        Node<E> result = null;
+        for (Node<E> child : children) {
+            if (child.getValue().compareTo(parent) == 0) {
+                result = child;
+                break;
+            }
+            result = find(child.getChildren(), parent);
+        }
+        return result;
+    }
 
     @Override
     public boolean add(E parent, E child) {
-        return false;
+        Node<E> resultAdd = root;
+        if (root.getValue().compareTo(parent) != 0) {
+            resultAdd = find(root.getChildren(), parent);
+        }
+        boolean parentExists = resultAdd != null;
+        if (parentExists) {
+            Node<E> node = new Node<>(child);
+            resultAdd.getChildren().add(node);
+        }
+        return parentExists;
     }
 
     @Override
     public Iterator<E> iterator() {
-        return null;
+        return new TreeIterator();
     }
+
+    /**
+     * A class that implements an iterator for the structure of the elementary tree.
+     */
+    private class TreeIterator implements Iterator<E> {
+
+        /**
+         * Temporary storage of items in the tree.
+         */
+        private Queue<Node<E>> queue;
+
+        /**
+         * Constructor TreeIterator.
+         */
+        private TreeIterator() {
+            queue = new LinkedList<>();
+            queue.add(root);
+        }
+
+        @Override
+        public boolean hasNext() {
+            return !queue.isEmpty();
+        }
+
+        @Override
+        public E next() {
+            Node<E> result = queue.poll();
+            queue.addAll(result.getChildren());
+            return result.getValue();
+        }
+    }
+
+
 }

@@ -122,11 +122,6 @@ public class ReferenceBook<T, V> implements SimpleMap<T, V> {
      * @return hash of index.
      */
     public int hashesIndex(T key) {
-//        int hashIndex = key.hashCode() % container.length;
-//        while (container[hashIndex] != null && container[hashIndex].key != key) {
-//            hashIndex = (hashIndex + 31) % container.length;
-//        }
-//        return hashIndex;
         int hashIndex = 0;
         if (key != null) {
             hashIndex = (key.hashCode()) ^ (hashIndex >>> 16);

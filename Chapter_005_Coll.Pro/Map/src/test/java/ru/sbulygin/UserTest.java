@@ -126,7 +126,6 @@ public class UserTest {
      */
     @Test
     public void whenHashCodeUserThenExpectedHashCode() {
-
         assertThat(firstUserTest.hashCode(), is(firstUserTest.hashCode()));
 
         assertThat(firstUserTest.equals(secondUserTest), is(firstUserTest.hashCode() == secondUserTest.hashCode()));
@@ -136,28 +135,66 @@ public class UserTest {
      * Test equals for User (All rules).
      */
     @Test
-    public void whenUserThenEqualsUserTwoTreeAllRules() {
+    public void whenUserThenEqualsUser() {
 
         assertTrue(firstUserTest.equals(firstUserTest));
+
+    }
+
+    /**
+     * Test equals for User (All rules).
+     */
+    @Test
+    public void whenUserEqualsSecondUserThenSecondUserEqualsUser() {
 
         boolean expectedResult = firstUserTest.equals(secondUserTest);
 
         assertThat(expectedResult, is(secondUserTest.equals(firstUserTest)));
+
+    }
+
+    /**
+     * Test equals for User (All rules).
+     */
+    @Test
+    public void whenUserEqualsSecondUserAndSecondUserEqualsUserThenTheyEqual() {
 
         boolean expectedResultOne = firstUserTest.equals(secondUserTest);
         boolean expectedResultTwo = secondUserTest.equals(thirdUserTest);
 
         assertThat(expectedResultOne, is(expectedResultTwo));
 
+    }
+
+    /**
+     * Test equals for User (All rules).
+     */
+    @Test
+    public void whenUserNullThenResultFalse() {
+
         assertFalse(firstUserTest.equals(null));
 
+    }
+
+    /**
+     * Test equals for User (All rules).
+     */
+    @Test
+    public void whenUserEqualsThirdUserThenResultTrue() {
+
         assertThat(firstUserTest.equals(thirdUserTest), is(true));
+
+    }
+
+    /**
+     * Test equals for User (All rules).
+     */
+    @Test
+    public void whenUserEqualsSecondUserThenResultTrue() {
 
         assertThat(firstUserTest.equals(secondUserTest), is(true));
 
     }
-
-
 
     /**
      * Test the map with no overridden equals and hashCode.
