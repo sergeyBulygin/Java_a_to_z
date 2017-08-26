@@ -44,7 +44,9 @@ public class SimpleTreeTest {
 
         treeTest.add("root", "one");
         treeTest.add("root", "two");
-        treeTest.add("root", "three");
+
+
+        //treeTest.add("root", "three");
 
 
     }
@@ -59,12 +61,40 @@ public class SimpleTreeTest {
     }
 
     /**
+     * Test isBinary method into the tree(true).
+     */
+    @Test
+    public void whenTreeHasLessTwoAtEachNodeThanResultTrue() {
+        treeTest.add("two", "two - one");
+        treeTest.add("two", "two - two");
+
+        boolean result = treeTest.isBinary();
+
+        assertThat(result, is(true));
+    }
+
+    /**
+     * Test isBinary method into the tree(false).
+     */
+    @Test
+    public void whenTreeHasMoreTwoAtEachNodeThanResultFalse() {
+        treeTest.add("two", "two - one");
+        treeTest.add("two", "two - two");
+        treeTest.add("two", "two - three");
+
+        boolean result = treeTest.isBinary();
+
+        assertThat(result, is(false));
+    }
+
+    /**
      * Test method add into the tree.
      */
     @Test
     public void whenAddChildrenInTreeThanResultAllChildren() {
         String result = rootTest.getChildren().toString();
-        assertThat(result, is("[one, two, three]"));
+
+        assertThat(result, is("[one, two]"));
     }
 
     /**
@@ -72,13 +102,13 @@ public class SimpleTreeTest {
      */
     @Test
     public void whenAddChildrenForChildTreeThanResultThisChild() {
-        treeTest.add("one", "four");
-        iteratorTest.next();
+        treeTest.add("one", "tree");
         iteratorTest.next();
         iteratorTest.next();
         iteratorTest.next();
 
-        assertThat(iteratorTest.next(), is("four"));
+
+        assertThat(iteratorTest.next(), is("tree"));
     }
 
     /**
@@ -98,7 +128,6 @@ public class SimpleTreeTest {
     @Test
     public void whenHasNextThanResultFalse() {
 
-        iteratorTest.next();
         iteratorTest.next();
         iteratorTest.next();
         iteratorTest.next();

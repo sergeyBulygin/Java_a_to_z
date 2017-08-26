@@ -62,6 +62,35 @@ public class Tree<E extends Comparable<E>> implements SimpleTree<E> {
         return parentExists;
     }
 
+    /**
+     * The method checks whether a binary tree.
+     * @return boolean result.
+     */
+    public boolean isBinary() {
+        boolean result = root.getChildren().size() <= 2;
+        if (result) {
+            result = isBinaryRecursion(root.getChildren());
+        }
+        return result;
+    }
+
+    /**
+     * The method recursively checks the number of child objects in each node.
+     * @param children list of children.
+     * @return boolean result.
+     */
+    private boolean isBinaryRecursion(List<Node<E>> children) {
+        boolean result = true;
+        for (Node<E> child : children) {
+            if (child.getChildren().size() > 2) {
+                result = false;
+                break;
+            }
+            result = isBinaryRecursion(child.getChildren());
+        }
+        return result;
+    }
+
     @Override
     public Iterator<E> iterator() {
         return new TreeIterator();
@@ -96,6 +125,8 @@ public class Tree<E extends Comparable<E>> implements SimpleTree<E> {
             queue.addAll(result.getChildren());
             return result.getValue();
         }
+
+
     }
 
 
