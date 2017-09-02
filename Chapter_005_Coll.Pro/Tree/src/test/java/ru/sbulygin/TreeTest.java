@@ -9,13 +9,13 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
 /**
- * Class Tree.
+ * Class TreeTest.
  *
  * @author sbulygin.
  * @since 17.08.2017.
  * @version 1.0.
  */
-public class SimpleTreeTest {
+public class TreeTest {
 
     /**
      * Instance of Tree.
@@ -44,11 +44,6 @@ public class SimpleTreeTest {
 
         treeTest.add("root", "one");
         treeTest.add("root", "two");
-
-
-        //treeTest.add("root", "three");
-
-
     }
 
     /**

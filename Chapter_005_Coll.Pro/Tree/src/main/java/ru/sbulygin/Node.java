@@ -54,7 +54,7 @@ public class Node<E> {
 
     @Override
     public String toString() {
-        return String.valueOf(value);
+        return String.format("%s", value.toString());
     }
 }
 
