@@ -79,13 +79,13 @@
                 <version>2.7</version>
                 <configuration>
                     <check>
-                        <branchRate>60</branchRate>
-                        <lineRate>60</lineRate>
+                        <branchRate>58</branchRate>
+                        <lineRate>58</lineRate>
                         <haltOnFailure>true</haltOnFailure>
-                        <totalBranchRate>60</totalBranchRate>
-                        <totalLineRate>60</totalLineRate>
-                        <packageLineRate>60</packageLineRate>
-                        <packageBranchRate>60</packageBranchRate>
+                        <totalBranchRate>58</totalBranchRate>
+                        <totalLineRate>58</totalLineRate>
+                        <packageLineRate>58</packageLineRate>
+                        <packageBranchRate>58</packageBranchRate>
                     </check>
                 </configuration>
                 <executions>
@@ -202,14 +202,6 @@
         </plugins>
     </build>
 
-    <reporting>
-        <plugins>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>cobertura-maven-plugin</artifactId>
-                <version>2.7</version>
-            </plugin>
-        </plugins>
-    </reporting>
+
 
 </project>
