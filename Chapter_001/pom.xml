@@ -32,6 +32,8 @@
 			</plugin>
 		</plugins>
 	</build>
+
+
 	
 	<parent>
         <groupId>ru.sbulygin</groupId>

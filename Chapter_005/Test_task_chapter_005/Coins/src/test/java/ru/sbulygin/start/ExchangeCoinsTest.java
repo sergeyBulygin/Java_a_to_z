@@ -38,7 +38,7 @@ public class ExchangeCoinsTest extends OutputTest {
     public void whenCoinsOneAndAmountTwoThatOneOneInConsole() {
         ExchangeCoins test = new ExchangeCoins();
         test.process(new int[]{1}, 2);
-        assertThat("1 1 \r\n", is(getOutput().toString()));
+        assertThat("1 1 \n", is(getOutput().toString()));
     }
 
     /**
@@ -48,7 +48,7 @@ public class ExchangeCoinsTest extends OutputTest {
     public void whenCoinsOneTwoAndAmountThreeThatSomeResultInConsole() {
         ExchangeCoins test = new ExchangeCoins();
         test.process(new int[]{2, 1}, 3);
-        assertThat("1 1 1 \r\n2 1 \r\n", is(getOutput().toString()));
+        assertThat("1 1 1 \n2 1 \n", is(getOutput().toString()));
     }
 
     /**
@@ -69,46 +69,46 @@ public class ExchangeCoinsTest extends OutputTest {
     public void whenCoinsOneTwoFiveTenAndAmountTwentyThatSomeResultInConsole() {
         ExchangeCoins test = new ExchangeCoins();
         test.process(new int[]{1, 2, 5, 10}, 20);
-        assertThat("10 10 \r\n"
-                        + "5 5 10 \r\n"
-                        + "5 5 5 5 \r\n"
-                        + "2 2 2 2 2 10 \r\n"
-                        + "2 2 2 2 2 5 5 \r\n"
-                        + "2 2 2 2 2 2 2 2 2 2 \r\n"
-                        + "1 2 2 5 10 \r\n"
-                        + "1 2 2 5 5 5 \r\n"
-                        + "1 2 2 2 2 2 2 2 5 \r\n"
-                        + "1 1 2 2 2 2 10 \r\n"
-                        + "1 1 2 2 2 2 5 5 \r\n"
-                        + "1 1 2 2 2 2 2 2 2 2 2 \r\n"
-                        + "1 1 1 2 5 10 \r\n"
-                        + "1 1 1 2 5 5 5 \r\n"
-                        + "1 1 1 2 2 2 2 2 2 5 \r\n"
-                        + "1 1 1 1 2 2 2 10 \r\n"
-                        + "1 1 1 1 2 2 2 5 5 \r\n"
-                        + "1 1 1 1 2 2 2 2 2 2 2 2 \r\n"
-                        + "1 1 1 1 1 5 10 \r\n"
-                        + "1 1 1 1 1 5 5 5 \r\n"
-                        + "1 1 1 1 1 2 2 2 2 2 5 \r\n"
-                        + "1 1 1 1 1 1 2 2 10 \r\n"
-                        + "1 1 1 1 1 1 2 2 5 5 \r\n"
-                        + "1 1 1 1 1 1 2 2 2 2 2 2 2 \r\n"
-                        + "1 1 1 1 1 1 1 2 2 2 2 5 \r\n"
-                        + "1 1 1 1 1 1 1 1 2 10 \r\n"
-                        + "1 1 1 1 1 1 1 1 2 5 5 \r\n"
-                        + "1 1 1 1 1 1 1 1 2 2 2 2 2 2 \r\n"
-                        + "1 1 1 1 1 1 1 1 1 2 2 2 5 \r\n"
-                        + "1 1 1 1 1 1 1 1 1 1 10 \r\n"
-                        + "1 1 1 1 1 1 1 1 1 1 5 5 \r\n"
-                        + "1 1 1 1 1 1 1 1 1 1 2 2 2 2 2 \r\n"
-                        + "1 1 1 1 1 1 1 1 1 1 1 2 2 5 \r\n"
-                        + "1 1 1 1 1 1 1 1 1 1 1 1 2 2 2 2 \r\n"
-                        + "1 1 1 1 1 1 1 1 1 1 1 1 1 2 5 \r\n"
-                        + "1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 2 2 \r\n"
-                        + "1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 5 \r\n"
-                        + "1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 2 \r\n"
-                        + "1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 \r\n"
-                        + "1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 \r\n", is(getOutput().toString()));
+        assertThat("10 10 \n"
+                        + "5 5 10 \n"
+                        + "5 5 5 5 \n"
+                        + "2 2 2 2 2 10 \n"
+                        + "2 2 2 2 2 5 5 \n"
+                        + "2 2 2 2 2 2 2 2 2 2 \n"
+                        + "1 2 2 5 10 \n"
+                        + "1 2 2 5 5 5 \n"
+                        + "1 2 2 2 2 2 2 2 5 \n"
+                        + "1 1 2 2 2 2 10 \n"
+                        + "1 1 2 2 2 2 5 5 \n"
+                        + "1 1 2 2 2 2 2 2 2 2 2 \n"
+                        + "1 1 1 2 5 10 \n"
+                        + "1 1 1 2 5 5 5 \n"
+                        + "1 1 1 2 2 2 2 2 2 5 \n"
+                        + "1 1 1 1 2 2 2 10 \n"
+                        + "1 1 1 1 2 2 2 5 5 \n"
+                        + "1 1 1 1 2 2 2 2 2 2 2 2 \n"
+                        + "1 1 1 1 1 5 10 \n"
+                        + "1 1 1 1 1 5 5 5 \n"
+                        + "1 1 1 1 1 2 2 2 2 2 5 \n"
+                        + "1 1 1 1 1 1 2 2 10 \n"
+                        + "1 1 1 1 1 1 2 2 5 5 \n"
+                        + "1 1 1 1 1 1 2 2 2 2 2 2 2 \n"
+                        + "1 1 1 1 1 1 1 2 2 2 2 5 \n"
+                        + "1 1 1 1 1 1 1 1 2 10 \n"
+                        + "1 1 1 1 1 1 1 1 2 5 5 \n"
+                        + "1 1 1 1 1 1 1 1 2 2 2 2 2 2 \n"
+                        + "1 1 1 1 1 1 1 1 1 2 2 2 5 \n"
+                        + "1 1 1 1 1 1 1 1 1 1 10 \n"
+                        + "1 1 1 1 1 1 1 1 1 1 5 5 \n"
+                        + "1 1 1 1 1 1 1 1 1 1 2 2 2 2 2 \n"
+                        + "1 1 1 1 1 1 1 1 1 1 1 2 2 5 \n"
+                        + "1 1 1 1 1 1 1 1 1 1 1 1 2 2 2 2 \n"
+                        + "1 1 1 1 1 1 1 1 1 1 1 1 1 2 5 \n"
+                        + "1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 2 2 \n"
+                        + "1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 5 \n"
+                        + "1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 2 \n"
+                        + "1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 \n"
+                        + "1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 \n", is(getOutput().toString()));
     }
 
 }
