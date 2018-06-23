@@ -15,7 +15,7 @@
 		<module>List</module>
 		<module>Map</module>
 		<module>Tree</module>
-		<module>Order_books</module>
+		<module>Order_book</module>
 	</modules>
 	
 	<parent>

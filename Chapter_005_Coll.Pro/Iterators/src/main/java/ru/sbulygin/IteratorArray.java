@@ -41,7 +41,10 @@ public class IteratorArray implements Iterator {
 
         boolean result = true;
 
-        if (rowIndex < 0 || columnIndex < 0 || array.length <= rowIndex || array[0].length <= columnIndex) {
+        if (rowIndex <= 0 || columnIndex <= 0) {
+            result = false;
+        }
+        if (array.length <= rowIndex || array[0].length <= columnIndex) {
             result = false;
         }
 
@@ -52,14 +55,16 @@ public class IteratorArray implements Iterator {
     @Override
     public Object next() {
 
-        int result = array[rowIndex][columnIndex];
+        int result = array[rowIndex][columnIndex++];
 
-        if (columnIndex == array[rowIndex].length - 1) {
-            rowIndex += rowIndex;
+        if (columnIndex == array[rowIndex].length) {
+            rowIndex ++;
+            columnIndex = 0;
         }
-
-        columnIndex++;
-
+        if (rowIndex == array.length) {
+            rowIndex = 0;
+            columnIndex = 0;
+        }
         return result;
     }
 

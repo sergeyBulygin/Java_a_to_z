@@ -19,10 +19,11 @@ public class IteratorArrayTest {
      */
     @Test
     public void whenWeUseNextMethodThenWeObtainFollowingValue() {
-        IteratorArray it = new IteratorArray(new int[][]{{4, 9}, {1, 7}});
-        it.next();
+        IteratorArray it = new IteratorArray(new int[][]{{1, 4, 9}, {1, 7, 3}, {15, 47, 33}});
+
+
         int result = (Integer) it.next();
-        int expectedResult = 9;
+        int expectedResult = 4;
         assertThat(result, is(expectedResult));
     }
 
@@ -45,7 +46,6 @@ public class IteratorArrayTest {
     public void whenWeUseHasNextMethodThenResultTrue() {
         IteratorArray it = new IteratorArray(new int[][]{{1, 2}});
         it.next();
-        it.hasNext();
         boolean result = it.hasNext();
         assertThat(result, is(true));
     }
